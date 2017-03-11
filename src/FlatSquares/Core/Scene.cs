@@ -30,7 +30,7 @@ namespace FlatSquares
 		/// Gets or sets the nodes.
 		/// </summary>
 		/// <value>The nodes.</value>
-		public IEnumerable<INode> Nodes { get; set; } = new List<INode>();
+		public IList<INode> Nodes { get; set; } = new List<INode>();
 
 		/// <summary>
 		/// Releases all resource used by the <see cref="T:FlatSquares.Scene"/> object.
@@ -41,6 +41,9 @@ namespace FlatSquares
 		/// collector can reclaim the memory that the <see cref="T:FlatSquares.Scene"/> was occupying.</remarks>
 		public void Dispose() => Nodes.ForEach(node => node.Dispose());
 
+		/// <summary>
+		/// Perform a draw
+		/// </summary>
 		public void Draw()
 		{
 			throw new NotImplementedException();

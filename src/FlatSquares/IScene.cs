@@ -24,6 +24,6 @@ namespace FlatSquares
 		/// Gets or sets the nodes.
 		/// </summary>
 		/// <value>The nodes.</value>
-		IEnumerable<INode> Nodes { get; }
+		IList<INode> Nodes { get; }
 	}
 }
