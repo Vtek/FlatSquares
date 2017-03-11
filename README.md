@@ -1,4 +1,4 @@
-** /!\ All code inside this repository must be considered as unstable **
+**/!\ All code inside this repository must be considered as unstable**
 
 # FlatSquares
 During all my developer life i built many game samples & game engine features. I have been made a break on gamedev since i failed to achieve two large games 3 years ago.
