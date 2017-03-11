@@ -1,4 +1,4 @@
-﻿namespace FlatSquares
+﻿namespace FlatSquares.Core
 {
 	/// <summary>
 	/// Scene factory.

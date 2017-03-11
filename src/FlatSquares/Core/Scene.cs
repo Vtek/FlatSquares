@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FlatSquares
+namespace FlatSquares.Core
 {
 	/// <summary>
 	/// Scene.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FlatSquares
+namespace FlatSquares.Core
 {
 	/// <summary>
 	/// Navigation.
