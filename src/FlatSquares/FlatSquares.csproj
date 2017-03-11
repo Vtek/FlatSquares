@@ -39,6 +39,13 @@
     <Compile Include="IDependencyContainer.cs" />
     <Compile Include="IUpdate.cs" />
     <Compile Include="IDraw.cs" />
+    <Compile Include="Core\Node.cs" />
+    <Compile Include="Core\Component.cs" />
+    <Compile Include="Extension\EnumerableExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Extension\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
