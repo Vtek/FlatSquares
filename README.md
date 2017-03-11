@@ -3,7 +3,7 @@
 # FlatSquares
 During all my developer life i built many game samples & game engine features. I have been made a break on gamedev since i failed to achieve two large games 3 years ago.
 
-At the moment, i really want to come back on gamedev for fun, so i have decided to create a basic 2d game engine for retro game style development. I'm not sure it will be a real project in the futur, but this repository will help me to remind most of knowledge on gamedev
+At the moment, i really want to come back on gamedev for fun, so i have decided to create a basic 2d game engine for retro game style development. I'm not sure if it will be a real project in the futur, but this repository will help me to remind most of my knowledge on gamedev
 
 ## RoadMap
 - XPlatform and mobile first engine
