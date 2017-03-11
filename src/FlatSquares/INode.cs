@@ -18,7 +18,7 @@ namespace FlatSquares
 		/// Gets or sets the components.
 		/// </summary>
 		/// <value>The components.</value>
-		IEnumerable<IComponent> Components { get; set; }
+		IEnumerable<IComponent> Components { get; }
 
 		/// <summary>
 		/// Gets or sets the scale.
@@ -43,5 +43,18 @@ namespace FlatSquares
 		/// </summary>
 		/// <value>The y position.</value>
 		float Y { get; set; }
+
+		/// <summary>
+		/// Gets the component.
+		/// </summary>
+		/// <returns>The component.</returns>
+		/// <typeparam name="TComponent">The 1st type parameter.</typeparam>
+		TComponent GetComponent<TComponent>() where TComponent : IComponent;
+
+		/// <summary>
+		/// Add the component.
+		/// </summary>
+		/// <param name="component">Component.</param>
+		void AddComponent(IComponent component);
 	}
 }

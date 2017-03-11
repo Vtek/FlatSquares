@@ -42,6 +42,12 @@
     <Compile Include="Core\Node.cs" />
     <Compile Include="Core\Component.cs" />
     <Compile Include="Extension\EnumerableExtension.cs" />
+    <Compile Include="Core\Scene.cs" />
+    <Compile Include="Core\SceneFactory.cs" />
+    <Compile Include="Core\Navigation.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="Core\Application.cs" />
+    <Compile Include="ISplash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

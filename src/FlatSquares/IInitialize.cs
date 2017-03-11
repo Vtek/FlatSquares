@@ -9,6 +9,6 @@
 		/// Initialize this instance with the specified paremeter.
 		/// </summary>
 		/// <param name="paremeter">Paremeter.</param>
-		void Initialize(object paremeter);
+		void Initialize(object paremeter = null);
 	}
 }
