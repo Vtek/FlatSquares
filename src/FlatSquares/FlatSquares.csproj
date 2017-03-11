@@ -49,10 +49,12 @@
     <Compile Include="Core\Application.cs" />
     <Compile Include="ISplash.cs" />
     <Compile Include="INodeFactory.cs" />
+    <Compile Include="Common\MathHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
     <Folder Include="Extension\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
