@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</ProjectGuid>
+    <ProjectGuid>{4D05CD43-C14D-403B-AC6C-1A7B53B63AD6}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
-    <RootNamespace>FruityFalls</RootNamespace>
-    <AssemblyName>FruityFalls</AssemblyName>
+    <RootNamespace>FlatSquares.MonoGame</RootNamespace>
+    <AssemblyName>FlatSquares.MonoGame</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
   </PropertyGroup>
@@ -29,41 +29,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scenes\RootScene.cs" />
-    <Compile Include="Components\SpinnerComponent.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="ContentProvider.cs" />
+    <Compile Include="ApplicationExtension.cs" />
+    <Compile Include="DependencyContainer.cs" />
+    <Compile Include="GameModule.cs" />
+    <Compile Include="RenderProvider.cs" />
+    <Compile Include="AppDomain.cs" />
+    <Compile Include="FSGame.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlatSquares\FlatSquares.csproj">
+      <Project>{902EB1C0-6F9B-4FFC-902C-6551FE3847B6}</Project>
+      <Name>FlatSquares</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\packages\MonoGame.Framework.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\samples\FruityFalls\packages\MonoGame.Framework.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\samples\FruityFalls\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Content.Pipeline">
-      <HintPath>..\packages\MonoGame.Framework.Content.Pipeline.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.Content.Pipeline.dll</HintPath>
+      <HintPath>..\..\samples\FruityFalls\packages\MonoGame.Framework.Content.Pipeline.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.Content.Pipeline.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Content\Sprites\spinner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\src\FlatSquares\FlatSquares.csproj">
-      <Project>{902EB1C0-6F9B-4FFC-902C-6551FE3847B6}</Project>
-      <Name>FlatSquares</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\src\FlatSquares.Components\FlatSquares.Components.csproj">
-      <Project>{65140D6C-28D8-44D3-87DE-F7E8D3EF77F1}</Project>
-      <Name>FlatSquares.Components</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\src\FlatSquares.MonoGame\FlatSquares.MonoGame.csproj">
-      <Project>{4D05CD43-C14D-403B-AC6C-1A7B53B63AD6}</Project>
-      <Name>FlatSquares.MonoGame</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scenes\" />
-    <Folder Include="Components\" />
-    <Folder Include="Content\" />
-    <Folder Include="Content\Sprites\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

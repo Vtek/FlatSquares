@@ -50,7 +50,7 @@ namespace FlatSquares.Core
 		/// Adds the component.
 		/// </summary>
 		/// <param name="component">Component.</param>
-		void INode.AddComponent(IComponent component)
+		public void AddComponent(IComponent component)
 		{
 			if (Components.Any(c => c.GetType() == component.GetType()))
 				throw new ArgumentException();

@@ -8,7 +8,7 @@ namespace FruityFalls
 		public static void Launch(IApplication application)
 		{
 			application
-				//.UseMonoGame()
+				.UseMonoGame()
 				.SetContentRootPath("Content")
 				.SetClearColor(Color.Black)
 				.SetVirtualResolution(1280, 720)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FlatSquares.Common;
 
 namespace FlatSquares.Core
@@ -33,6 +34,11 @@ namespace FlatSquares.Core
 		public IRenderProvider RenderProvider { get; set; }
 
 		Color Clear { get; set; }
+
+		/// <summary>
+		/// Occurs when started.
+		/// </summary>
+		public event EventHandler Started;
 
 		/// <summary>
 		/// Define basic game scene.
@@ -95,6 +101,7 @@ namespace FlatSquares.Core
 		{
 			SceneFactory.SetRoot<TRoot>();
 			Navigation.Start();
+			Started?.Invoke(this, EventArgs.Empty);
 		}
 
 		/// <summary>

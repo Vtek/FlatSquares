@@ -9,6 +9,11 @@ namespace FlatSquares
 	public interface IApplication : IDisposable, IDraw, IUpdate
 	{
 		/// <summary>
+		/// Occurs when started.
+		/// </summary>
+		event EventHandler Started;
+
+		/// <summary>
 		/// Start the application.
 		/// </summary>
 		void Start<TRoot>() where TRoot : IScene;

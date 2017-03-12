@@ -48,7 +48,6 @@
     <Compile Include="IApplication.cs" />
     <Compile Include="Core\Application.cs" />
     <Compile Include="ISplash.cs" />
-    <Compile Include="INodeFactory.cs" />
     <Compile Include="Common\MathHelper.cs" />
     <Compile Include="Common\Vector.cs" />
     <Compile Include="Common\Rectangle.cs" />
