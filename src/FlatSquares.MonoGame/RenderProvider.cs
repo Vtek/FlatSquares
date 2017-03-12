@@ -31,7 +31,7 @@ namespace FlatSquares.MonoGame
 			}
 
 			GraphicsDeviceManager.GraphicsDevice.Clear(_clearColor);
-			SpriteBatch.Begin(SpriteSortMode.Immediate);
+            SpriteBatch.Begin();
 		}
 
 		public void Draw(IRender render)
@@ -48,7 +48,7 @@ namespace FlatSquares.MonoGame
 			_origin.Y = render.Origin.Y;
 
 			SpriteBatch.Draw(render.GetRenderObject<Texture2D>(), _position, _source, _drawColor, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
-		}
+        }
 
 		public void End()
 		{

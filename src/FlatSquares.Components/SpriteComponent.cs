@@ -7,7 +7,7 @@ namespace FlatSquares.Components
 	{
 		object _internalResource;
 
-		public Vector Origin { get; } = Vector.Zero; //TODO
+		public Vector Origin { get; set; } = Vector.Zero; //TODO
 
 		public Vector Position => Node.Position;
 		public float Rotation => Node.Rotation;

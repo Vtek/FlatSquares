@@ -34,11 +34,11 @@ namespace FlatSquares.Core
 		/// <value>The rotation.</value>
 		public float Rotation { get; set; }
 
-		/// <summary>
-		/// Gets or sets the scale.
-		/// </summary>
-		/// <value>The scale.</value>
-		public float Scale { get; set; }
+        /// <summary>
+        /// Gets or sets the scale.
+        /// </summary>
+        /// <value>The scale.</value>
+        public float Scale { get; set; } = 1f;
 
 		/// <summary>
 		/// Gets or sets the position.

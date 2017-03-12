@@ -4,12 +4,11 @@ namespace FruityFalls
 {
 	public class SpinnerComponent : Component
 	{
-		float Speed { get; } = 75f;
+        public float Speed { get; set; }
 
 		public override void Update(float elapsed)
 		{
-			Node.Rotation = Node.Rotation * elapsed * 75f;
-			base.Update(elapsed);
+            Node.Rotation += elapsed * Speed;
 		}
 	}
 }

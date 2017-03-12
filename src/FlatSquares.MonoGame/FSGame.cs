@@ -16,6 +16,8 @@ namespace FlatSquares.MonoGame
 			RenderProvider = renderProvider;
 
             GraphicsDeviceManager = new GraphicsDeviceManager(this);
+            GraphicsDeviceManager.SynchronizeWithVerticalRetrace = false;
+            IsFixedTimeStep = false;
 
 			((ContentProvider)contentProvider).ContentManager = Content;
 			((RenderProvider)RenderProvider).GraphicsDeviceManager = GraphicsDeviceManager;
@@ -42,14 +44,14 @@ namespace FlatSquares.MonoGame
 
 		protected override void Update(GameTime gameTime)
 		{
-			Application.Update((float)gameTime.ElapsedGameTime.TotalMilliseconds);
-			base.Update(gameTime);
+            Application.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            base.Update(gameTime);
 		}
 
 		protected override void Draw(GameTime gameTime)
 		{	
 			Application.Draw();
-			base.Draw(gameTime);
+            base.Draw(gameTime);
 		}
 	}
 }
