@@ -77,7 +77,7 @@ namespace FlatSquares.Common
 		/// Gets a empty rectangle.
 		/// </summary>
 		/// <value>The empty rectangle.</value>
-		public static Rectangle Empty => new Rectangle();
+		public static Rectangle Empty { get; } = new Rectangle();
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Rectangle"/> class.
