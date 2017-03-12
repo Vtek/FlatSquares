@@ -100,7 +100,6 @@ namespace FlatSquares.Core
 		public void Start<TRoot>() where TRoot: IScene
 		{
 			SceneFactory.SetRoot<TRoot>();
-			Navigation.Start();
 			Started?.Invoke(this, EventArgs.Empty);
 		}
 
@@ -120,5 +119,10 @@ namespace FlatSquares.Core
 			ContentProvider.RootPath = path;
 			return this;
 		}
-	}
+
+        public void Initialize(object paremeter = null)
+        {
+            Navigation.Start();
+        }
+    }
 }

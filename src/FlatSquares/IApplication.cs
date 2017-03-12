@@ -6,7 +6,7 @@ namespace FlatSquares
 	/// <summary>
 	/// Define a FlatSquares application.
 	/// </summary>
-	public interface IApplication : IDisposable, IDraw, IUpdate
+	public interface IApplication : IDisposable, IDraw, IUpdate, IInitialize
 	{
 		/// <summary>
 		/// Occurs when started.

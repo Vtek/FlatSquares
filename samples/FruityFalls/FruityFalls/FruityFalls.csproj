@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Content\Sprites\spinner.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\FlatSquares\FlatSquares.csproj">
@@ -62,8 +61,6 @@
   <ItemGroup>
     <Folder Include="Scenes\" />
     <Folder Include="Components\" />
-    <Folder Include="Content\" />
-    <Folder Include="Content\Sprites\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

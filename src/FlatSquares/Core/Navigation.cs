@@ -73,6 +73,10 @@ namespace FlatSquares.Core
 			});
 
 			Scenes.Clear();
+
+            SceneFactory.Root.Initialize();
+            SceneFactory.Root.GetLoadables().ForEach(element => element.Load(ContentProvider));
+
 			Scenes.Add(SceneFactory.Root);
 			SceneFactory.Root.Enabled = true;
 		}
@@ -84,9 +88,14 @@ namespace FlatSquares.Core
 		public void Push<TScene>(object parameter = null) where TScene : IScene
 		{
 			var scene = SceneFactory.Create<TScene>();
+            scene.Initialize(parameter);
 			scene.GetLoadables().ForEach(element => element.Load(ContentProvider));
-			scene.Initialize(parameter);
-			GetCurrent().Enabled = false;
+
+            var current = GetCurrent();
+
+            if (current != null)
+                current.Enabled = false;
+            
 			Scenes.Add(scene);
 		}
 
@@ -94,7 +103,7 @@ namespace FlatSquares.Core
 		/// Gets the current scene.
 		/// </summary>
 		/// <returns>The current.</returns>
-		public IScene GetCurrent() => Scenes.Last();
+		public IScene GetCurrent() => Scenes.LastOrDefault();
 
 		/// <summary>
 		/// Start.
@@ -106,6 +115,8 @@ namespace FlatSquares.Core
 
 			if (SceneFactory.Splash != null)
 			{
+                SceneFactory.Splash.Initialize();
+                SceneFactory.Splash.GetLoadables().ForEach(element => element.Load(ContentProvider));
 				SceneFactory.Splash.Finished += SplashFinished;
 				Scenes.Add(SceneFactory.Splash);
 			}

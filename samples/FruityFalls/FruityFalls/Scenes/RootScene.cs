@@ -13,7 +13,7 @@ namespace FruityFalls
 		{
 			var node = new Node();
 			node.AddComponent(new SpinnerComponent());
-			node.AddComponent(new SpriteComponent { TexturePath = "Sprites/spinner.png" });
+			node.AddComponent(new SpriteComponent { TexturePath = "Sprites/spinner" });
 			Nodes.Add(node);
 
 			base.Initialize(paremeter);

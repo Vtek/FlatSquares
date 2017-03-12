@@ -98,6 +98,7 @@
   <ItemGroup>
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
+    <None Include="Content\Sprites\spinner.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Default.png" />
@@ -123,6 +124,14 @@
       <Project>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</Project>
       <Name>FruityFalls</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Sprites\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Sprites\spinner.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

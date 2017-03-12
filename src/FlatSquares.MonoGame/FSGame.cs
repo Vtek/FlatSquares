@@ -37,6 +37,7 @@ namespace FlatSquares.MonoGame
 		protected override void Initialize()
 		{
 			base.Initialize();
+            Application.Initialize();
 		}
 
 		protected override void Update(GameTime gameTime)

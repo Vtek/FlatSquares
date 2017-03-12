@@ -13,10 +13,9 @@ namespace FlatSquares.MonoGame
 			{
 				return ContentManager.RootDirectory;
 			}
-
 			set
 			{
-				//ContentManager.RootDirectory = value;
+				ContentManager.RootDirectory = value;
 			}
 		}
 

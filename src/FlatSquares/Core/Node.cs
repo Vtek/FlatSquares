@@ -56,7 +56,7 @@ namespace FlatSquares.Core
 				throw new ArgumentException();
 
 			component.SetNode(this);
-			Components.ToList().Add(component);
+            (Components as IList<IComponent>)?.Add(component);
 		}
 
 		/// <summary>
