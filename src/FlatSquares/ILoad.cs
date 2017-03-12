@@ -1,14 +1,14 @@
 ﻿namespace FlatSquares
 {
 	/// <summary>
-	/// Define an object which need to load external contents.
+	/// Load.
 	/// </summary>
-	public interface IContent
+	public interface ILoad
 	{
 		/// <summary>
 		/// Loads contents.
 		/// </summary>
 		/// <param name="contentProvider">Content provider.</param>
-		void LoadContent(IContentProvider contentProvider);
+		void Load(IContentProvider contentProvider);
 	}
 }

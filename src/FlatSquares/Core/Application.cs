@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using FlatSquares.Common;
 
 namespace FlatSquares.Core
@@ -61,7 +61,7 @@ namespace FlatSquares.Core
 		public void Draw() 
 		{
 			RenderProvider.Begin(Clear);
-			Navigation.GetCurrent().Draw();
+			Navigation.GetCurrent().GetRenderables().ForEach(RenderProvider.Draw);
 			RenderProvider.End();
 		}
 

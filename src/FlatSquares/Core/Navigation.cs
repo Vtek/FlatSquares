@@ -28,12 +28,20 @@ namespace FlatSquares.Core
 		ISceneFactory SceneFactory { get; set; }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:FlatSquares.Navigation"/> class.
+		/// Gets or sets the content provider.
+		/// </summary>
+		/// <value>The content provider.</value>
+		IContentProvider ContentProvider { get; set; }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:FlatSquares.Core.Navigation"/> class.
 		/// </summary>
 		/// <param name="sceneFactory">Scene factory.</param>
-		public Navigation(ISceneFactory sceneFactory)
+		/// <param name="contentProvider">Content provider.</param>
+		public Navigation(ISceneFactory sceneFactory, IContentProvider contentProvider)
 		{
 			SceneFactory = sceneFactory;
+			ContentProvider = contentProvider;
 		}
 
 		/// <summary>
@@ -76,6 +84,7 @@ namespace FlatSquares.Core
 		public void Push<TScene>(object parameter = null) where TScene : IScene
 		{
 			var scene = SceneFactory.Create<TScene>();
+			scene.GetLoadables().ForEach(element => element.Load(ContentProvider));
 			scene.Initialize(parameter);
 			GetCurrent().Enabled = false;
 			Scenes.Add(scene);

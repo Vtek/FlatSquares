@@ -6,7 +6,7 @@ namespace FlatSquares
 	/// <summary>
 	/// Define a scene.
 	/// </summary>
-	public interface IScene : IDisposable, IInitialize, IUpdate, IDraw, IEnabled
+	public interface IScene : IDisposable, IInitialize, IUpdate, IEnabled
 	{
 		/// <summary>
 		/// Gets or sets the key.
@@ -25,5 +25,17 @@ namespace FlatSquares
 		/// </summary>
 		/// <value>The nodes.</value>
 		IList<INode> Nodes { get; }
+
+		/// <summary>
+		/// Gets the renderables.
+		/// </summary>
+		/// <returns>The renderable.</returns>
+		IEnumerable<IRender> GetRenderables();
+
+		/// <summary>
+		/// Gets the loadables.
+		/// </summary>
+		/// <returns>The loadables.</returns>
+		IEnumerable<ILoad> GetLoadables();
 	}
 }

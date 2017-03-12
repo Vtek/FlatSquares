@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FlatSquares.Core
 {
@@ -42,11 +42,33 @@ namespace FlatSquares.Core
 		public void Dispose() => Nodes.ForEach(node => node.Dispose());
 
 		/// <summary>
-		/// Perform a draw
+		/// Gets the renderables.
 		/// </summary>
-		public void Draw()
+		/// <returns>The renderables.</returns>
+		public IEnumerable<IRender> GetRenderables()
 		{
-			throw new NotImplementedException();
+			//TODO will need optimisation
+			var renderables = new List<IRender>();
+			foreach (var node in Nodes)
+			{
+				renderables.AddRange(node.Components.OfType<IRender>().ToList());
+			}
+			return renderables;
+		}
+
+		/// <summary>
+		/// Gets the loadables.
+		/// </summary>
+		/// <returns>The loadables.</returns>
+		public IEnumerable<ILoad> GetLoadables()
+		{
+			//TODO will need optimisation
+			var loadables = new List<ILoad>();
+			foreach (var node in Nodes)
+			{
+				loadables.AddRange(node.Components.OfType<ILoad>().ToList());
+			}
+			return loadables;
 		}
 
 		/// <summary>

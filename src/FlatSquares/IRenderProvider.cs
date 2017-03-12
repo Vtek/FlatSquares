@@ -26,26 +26,11 @@ namespace FlatSquares
 		void Begin(Color color);
 
 		/// <summary>
-		/// Draw a render object.
-		/// </summary>
-		/// <param name="render">Render.</param>
-		/// <param name="destination">Destination.</param>
-		/// <param name="source">Source.</param>
-		/// <param name="rotation">Rotation.</param>
-		/// <param name="origin">Origin.</param>
-		void Draw(IRender render, Rectangle destination, Rectangle source, float rotation, Vector origin);
-
-		/// <summary>
-		/// Draw a render object.
+		/// Draw the specified render.
 		/// </summary>
 		/// <returns>The draw.</returns>
 		/// <param name="render">Render.</param>
-		/// <param name="position">Position.</param>
-		/// <param name="source">Source.</param>
-		/// <param name="rotation">Rotation.</param>
-		/// <param name="origin">Origin.</param>
-		/// <param name="scale">Scale.</param>
-		void Draw(IRender render, Vector position, Rectangle source, float rotation, Vector origin, float scale);
+		void Draw(IRender render);
 
 		/// <summary>
 		/// End render process.
