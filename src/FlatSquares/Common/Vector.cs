@@ -101,7 +101,7 @@ namespace FlatSquares.Common
 		/// Serves as a hash function for a <see cref="Vector"/> object.
 		/// </summary>
 		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
-		public override int GetHashCode() => (X.GetHashCode() * 397) ^ Y.GetHashCode();
+		public override int GetHashCode() => unchecked (X.GetHashCode() * 397) ^ Y.GetHashCode();
 
 		/// <summary>
 		/// Clamp the specified vector.

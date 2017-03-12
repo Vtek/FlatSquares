@@ -138,7 +138,17 @@ namespace FlatSquares.Common
 		/// Serves as a hash function for a <see cref="Color"/> object.
 		/// </summary>
 		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
-		public override int GetHashCode() => A * R * G * B;
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				var result = A.GetHashCode();
+				result = (result * 397) ^ R.GetHashCode();
+				result = (result * 397) ^ G.GetHashCode();
+				result = (result * 397) ^ B.GetHashCode();
+				return result;
+			}
+		}
 
 		/// <summary>
 		/// Lerp the color on rgb.

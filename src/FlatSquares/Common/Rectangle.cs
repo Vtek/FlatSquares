@@ -151,6 +151,16 @@ namespace FlatSquares.Common
 		/// Serves as a hash function for a <see cref="Rectangle"/> object.
 		/// </summary>
 		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
-		public override int GetHashCode() => Convert.ToInt32(X * Y * Width * Height);
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				var result = X.GetHashCode();
+				result = (result * 397) ^ Y.GetHashCode();
+				result = (result * 397) ^ Width.GetHashCode();
+				result = (result * 397) ^ Height.GetHashCode();
+				return result;
+			}
+		}
 	}
 }
