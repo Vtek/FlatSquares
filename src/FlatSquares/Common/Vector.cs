@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FlatSquares.Common
+﻿namespace FlatSquares.Common
 {
 	/// <summary>
 	/// Vector 2d.
