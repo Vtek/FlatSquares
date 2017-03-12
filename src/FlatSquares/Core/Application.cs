@@ -1,12 +1,12 @@
-﻿namespace FlatSquares.Core
+﻿using System;
+using FlatSquares.Common;
+
+namespace FlatSquares.Core
 {
 	/// <summary>
 	/// FlatSquares Application.
 	/// </summary>
-	public sealed class Application<TRoot, TLoading, TSplash> : IApplication<TRoot, TLoading, TSplash>
-		where TRoot : IScene
-		where TLoading : IScene
-		where TSplash : ISplash
+	public sealed class Application : IApplication
 	{
 		/// <summary>
 		/// Gets or sets the navigation.
@@ -19,6 +19,18 @@
 		/// </summary>
 		/// <value>The scene factory.</value>
 		public ISceneFactory SceneFactory { get; set; }
+
+		/// <summary>
+		/// Define basic game scene.
+		/// </summary>
+		public IApplication Define<TSplash, TLoading>()
+			where TSplash : ISplash
+			where TLoading : IScene
+		{
+			SceneFactory.SetSplash<TSplash>();
+			SceneFactory.SetLoading<TLoading>();
+			return this;
+		}
 
 		/// <summary>
 		/// Releases all resource used by the <see cref="T:FlatSquares.Application`3"/> object.
@@ -35,13 +47,33 @@
 		public void Draw() => Navigation.GetCurrent().Draw();
 
 		/// <summary>
+		/// Sets the color for the clear operation.
+		/// </summary>
+		/// <returns>The clear color.</returns>
+		/// <param name="color">Color.</param>
+		public IApplication SetClearColor(Color color)
+		{
+			//TODO : need provider abstraction
+			return this;
+		}
+
+		/// <summary>
+		/// Sets the virtual resolution.
+		/// </summary>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		public IApplication SetVirtualResolution(int width, int height)
+		{
+			//TODO : need provider abstraction
+			return this;
+		}
+
+		/// <summary>
 		/// Start the application.
 		/// </summary>
-		public void Start()
+		public void Start<TRoot>() where TRoot: IScene
 		{
-			SceneFactory.SetLoading<TLoading>();
 			SceneFactory.SetRoot<TRoot>();
-			SceneFactory.SetSplash<TSplash>();
 			Navigation.Start();
 		}
 

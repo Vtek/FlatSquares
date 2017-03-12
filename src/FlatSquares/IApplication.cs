@@ -1,18 +1,38 @@
 ﻿using System;
+using FlatSquares.Common;
 
 namespace FlatSquares
 {
 	/// <summary>
 	/// Define a FlatSquares application.
 	/// </summary>
-	public interface IApplication<TRoot, TLoading, TSplash> : IDisposable, IDraw, IUpdate
-		where TRoot : IScene 
-		where TLoading : IScene
-		where TSplash : ISplash
+	public interface IApplication : IDisposable, IDraw, IUpdate
 	{
 		/// <summary>
 		/// Start the application.
 		/// </summary>
-		void Start();
+		void Start<TRoot>() where TRoot : IScene;
+
+		/// <summary>
+		/// Define basic game scene.
+		/// </summary>
+		IApplication Define<TSplash, TLoading>()
+			where TSplash : ISplash
+			where TLoading : IScene;
+
+		/// <summary>
+		/// Sets the color for the clear operation.
+		/// </summary>
+		/// <returns>The clear color.</returns>
+		/// <param name="color">Color.</param>
+		IApplication SetClearColor(Color color);
+
+		/// <summary>
+		/// Sets the virtual resolution.
+		/// </summary>
+		/// <returns>The virtual resolution.</returns>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		IApplication SetVirtualResolution(int width, int height);
 	}
 }
