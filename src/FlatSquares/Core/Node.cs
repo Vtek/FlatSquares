@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FlatSquares.Common;
 
@@ -49,8 +50,11 @@ namespace FlatSquares.Core
 		/// Adds the component.
 		/// </summary>
 		/// <param name="component">Component.</param>
-		public void AddComponent(IComponent component)
+		void INode.AddComponent(IComponent component)
 		{
+			if (Components.Any(c => c.GetType() == component.GetType()))
+				throw new ArgumentException();
+
 			component.SetNode(this);
 			Components.ToList().Add(component);
 		}
