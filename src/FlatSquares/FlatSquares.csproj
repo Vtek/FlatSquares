@@ -54,6 +54,10 @@
     <Compile Include="Common\Rectangle.cs" />
     <Compile Include="Common\Color.cs" />
     <Compile Include="Common\RandomHelper.cs" />
+    <Compile Include="IRender.cs" />
+    <Compile Include="IContent.cs" />
+    <Compile Include="IContentProvider.cs" />
+    <Compile Include="IRenderProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

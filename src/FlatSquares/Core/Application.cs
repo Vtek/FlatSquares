@@ -21,6 +21,20 @@ namespace FlatSquares.Core
 		public ISceneFactory SceneFactory { get; set; }
 
 		/// <summary>
+		/// Gets or sets the content provider.
+		/// </summary>
+		/// <value>The content provider.</value>
+		public IContentProvider ContentProvider { get; set; }
+
+		/// <summary>
+		/// Gets or sets the render provider.
+		/// </summary>
+		/// <value>The render provider.</value>
+		public IRenderProvider RenderProvider { get; set; }
+
+		Color Clear { get; set; }
+
+		/// <summary>
 		/// Define basic game scene.
 		/// </summary>
 		public IApplication Define<TSplash, TLoading>()
@@ -44,7 +58,12 @@ namespace FlatSquares.Core
 		/// <summary>
 		/// Perform a draw
 		/// </summary>
-		public void Draw() => Navigation.GetCurrent().Draw();
+		public void Draw() 
+		{
+			RenderProvider.Begin(Clear);
+			Navigation.GetCurrent().Draw();
+			RenderProvider.End();
+		}
 
 		/// <summary>
 		/// Sets the color for the clear operation.
@@ -53,7 +72,7 @@ namespace FlatSquares.Core
 		/// <param name="color">Color.</param>
 		public IApplication SetClearColor(Color color)
 		{
-			//TODO : need provider abstraction
+			Clear = color;
 			return this;
 		}
 
@@ -64,7 +83,8 @@ namespace FlatSquares.Core
 		/// <param name="height">Height.</param>
 		public IApplication SetVirtualResolution(int width, int height)
 		{
-			//TODO : need provider abstraction
+			RenderProvider.WidthRequired = width;
+			RenderProvider.HeightRequired = height;
 			return this;
 		}
 
@@ -82,5 +102,16 @@ namespace FlatSquares.Core
 		/// </summary>
 		/// <param name="elapsed">Elapsed time since last update.</param>
 		public void Update(float elapsed) => Navigation.GetCurrent().Update(elapsed);
+
+		/// <summary>
+		/// Sets the content root path.
+		/// </summary>
+		/// <returns>The content root path.</returns>
+		/// <param name="path">Path.</param>
+		public IApplication SetContentRootPath(string path)
+		{
+			ContentProvider.RootPath = path;
+			return this;
+		}
 	}
 }
