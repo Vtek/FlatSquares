@@ -87,7 +87,7 @@ namespace FlatSquares.Common
 		/// <param name="other">The <see cref="Vector"/> to compare with the current <see cref="Vector"/>.</param>
 		/// <returns><c>true</c> if the specified <see cref="Vector"/> is equal to the current <see cref="Vector"/>;
 		/// otherwise, <c>false</c>.</returns>
-		public bool Equals(Vector other) => X == other.X && Y == other.Y;
+		public bool Equals(Vector other) => MathHelper.Abs(X - other.X) < float.Epsilon && MathHelper.Abs(Y - other.Y) < float.Epsilon;
 
 		/// <summary>
 		/// Determines whether the specified object is equal to the current <see cref="Vector"/>.
