@@ -71,7 +71,7 @@ namespace FlatSquares.Common
 		/// Gets a value indicating whether this instance is empty.
 		/// </summary>
 		/// <value><c>true</c> if this instance is empty; otherwise, <c>false</c>.</value>
-		public bool IsEmpty => X == 0.0f && Y == 0.0f && Width == 0.0f && Height == 0.0f;
+		public bool IsEmpty => MathHelper.Abs(X) < float.Epsilon && MathHelper.Abs(Y) < float.Epsilon && MathHelper.Abs(Width) < float.Epsilon && MathHelper.Abs(Height) < float.Epsilon;
 
 		/// <summary>
 		/// Gets a empty rectangle.
@@ -145,7 +145,7 @@ namespace FlatSquares.Common
 		/// <param name="other">The <see cref="Rectangle"/> to compare with the current <see cref="Rectangle"/>.</param>
 		/// <returns><c>true</c> if the specified <see cref="Rectangle"/> is equal to the current
 		/// <see cref="Rectangle"/>; otherwise, <c>false</c>.</returns>
-		public bool Equals(Rectangle other) =>  X == other.X && Y == other.Y && Width == other.Width && Height == other.Height;
+		public bool Equals(Rectangle other) => MathHelper.Abs(X - other.X) < float.Epsilon && MathHelper.Abs(Y - other.Y) < float.Epsilon && MathHelper.Abs(Width - other.Width) < float.Epsilon && MathHelper.Abs(Height - other.Height) < float.Epsilon;
 
 		/// <summary>
 		/// Serves as a hash function for a <see cref="Rectangle"/> object.
