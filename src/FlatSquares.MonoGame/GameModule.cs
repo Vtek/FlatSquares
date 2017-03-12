@@ -15,13 +15,16 @@ namespace FlatSquares.MonoGame
 			builder.RegisterType<Navigation>().As<INavigation>().SingleInstance();
 
 			foreach (var assembly in AppDomain.Assemblies) 
-			{ 
-				builder
-					.RegisterTypes(assembly.DefinedTypes
-									  .Where(type => type.ImplementedInterfaces.Any(i => i.Name == typeof(IScene).Name))
-									  .Select(type => type.AsType())
-									  .ToArray())
-					.OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
+			{
+                if(!assembly.FullName.StartsWith("Xamarin"))
+                {
+                    builder
+                        .RegisterTypes(assembly.DefinedTypes
+                                      .Where(type => type.ImplementedInterfaces.Any(i => i.Name == typeof(IScene).Name))
+                                      .Select(type => type.AsType())
+                                      .ToArray())
+                        .OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
+                }
 			}
 		}
 	}

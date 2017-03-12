@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FlatSquares.MonoGame
 {
@@ -7,14 +8,17 @@ namespace FlatSquares.MonoGame
 	{
 		IApplication Application { get; set; }
 		IRenderProvider RenderProvider { get; set; }
+        GraphicsDeviceManager GraphicsDeviceManager { get; set; }
 
 		public FSGame(IApplication application, IContentProvider contentProvider, IRenderProvider renderProvider)
 		{
 			Application = application;
 			RenderProvider = renderProvider;
 
+            GraphicsDeviceManager = new GraphicsDeviceManager(this);
+
 			((ContentProvider)contentProvider).ContentManager = Content;
-			((RenderProvider)RenderProvider).GraphicsDeviceManager = new GraphicsDeviceManager(this);
+			((RenderProvider)RenderProvider).GraphicsDeviceManager = GraphicsDeviceManager;
 
 			Application.Started += Application_Started;
 		}
@@ -26,6 +30,7 @@ namespace FlatSquares.MonoGame
 
 		protected override void LoadContent()
 		{
+            ((RenderProvider)RenderProvider).SpriteBatch = new SpriteBatch(GraphicsDeviceManager.GraphicsDevice);
 			base.LoadContent();
 		}
 
