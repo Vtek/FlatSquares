@@ -124,7 +124,7 @@ namespace FlatSquares.Common
 		/// <param name="obj">The object to compare with the current <see cref="Color"/>.</param>
 		/// <returns><c>true</c> if the specified object is equal to the current <see cref="Color"/>;
 		/// otherwise, <c>false</c>.</returns>
-		public override bool Equals(object obj) => Equals((Color)obj);
+		public override bool Equals(object obj) => (obj is Color) && Equals((Color)obj);
 
 		/// <summary>
 		/// Determines whether the specified <see cref="Color"/> is equal to the current <see cref="Color"/>.

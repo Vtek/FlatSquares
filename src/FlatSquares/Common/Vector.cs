@@ -95,7 +95,7 @@ namespace FlatSquares.Common
 		/// <param name="obj">The object to compare with the current <see cref="Vector"/>.</param>
 		/// <returns><c>true</c> if the specified object is equal to the current <see cref="Vector"/>;
 		/// otherwise, <c>false</c>.</returns>
-		public override bool Equals(object obj) => Equals((Vector)obj);
+		public override bool Equals(object obj) => (obj is Vector) && Equals((Vector)obj);
 
 		/// <summary>
 		/// Serves as a hash function for a <see cref="Vector"/> object.

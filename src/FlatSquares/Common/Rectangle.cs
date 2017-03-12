@@ -137,7 +137,7 @@ namespace FlatSquares.Common
 		/// <param name="obj">The object to compare with the current <see cref="Rectangle"/>.</param>
 		/// <returns><c>true</c> if the specified object is equal to the current <see cref="Rectangle"/>;
 		/// otherwise, <c>false</c>.</returns>
-		public override bool Equals(object obj) => Equals((Rectangle)obj);
+		public override bool Equals(object obj) => (obj is Rectangle) && Equals((Rectangle)obj);
 
 		/// <summary>
 		/// Determines whether the specified <see cref="Rectangle"/> is equal to the current <see cref="Rectangle"/>.
