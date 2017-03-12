@@ -95,8 +95,15 @@ namespace FlatSquares.Core
 			if (Started)
 				throw new InvalidOperationException();
 
-			SceneFactory.Splash.Finished += SplashFinished;
-			Scenes.Add(SceneFactory.Splash);
+			if (SceneFactory.Splash != null)
+			{
+				SceneFactory.Splash.Finished += SplashFinished;
+				Scenes.Add(SceneFactory.Splash);
+			}
+			else 
+			{
+				PopToRoot();
+			}
 		}
 
 		/// <summary>
@@ -107,8 +114,7 @@ namespace FlatSquares.Core
 		void SplashFinished(object sender, EventArgs e)
 		{
 			SceneFactory.Splash.Finished -= SplashFinished;
-			Scenes.Clear();
-			Scenes.Add(SceneFactory.Root);
+			PopToRoot();
 		}
 
 		/// <summary>
