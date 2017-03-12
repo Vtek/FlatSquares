@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlatSquares
+namespace FlatSquares.Common
 {
 	/// <summary>
 	/// Math helper.
