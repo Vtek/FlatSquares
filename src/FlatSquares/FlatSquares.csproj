@@ -52,6 +52,7 @@
     <Compile Include="Common\MathHelper.cs" />
     <Compile Include="Common\Vector.cs" />
     <Compile Include="Common\Rectangle.cs" />
+    <Compile Include="Common\Color.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
