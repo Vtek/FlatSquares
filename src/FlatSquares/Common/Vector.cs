@@ -23,7 +23,7 @@ namespace FlatSquares.Common
 		/// Gets the zero vector.
 		/// </summary>
 		/// <value>The zero vector.</value>
-		public static Vector Zero { get; } = new Vector(0.0f, 0.0f);
+		public static Vector Zero { get; } = new Vector();
 
 		/// <summary>
 		/// Gets the one vector.
