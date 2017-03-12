@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FlatSquares.Common;
 
 namespace FlatSquares.Core
 {
 	/// <summary>
 	/// Node game object.
 	/// </summary>
-	public abstract class Node : INode
+	public class Node : INode
 	{
 		/// <summary>
 		/// Gets or sets the components.
@@ -39,16 +40,10 @@ namespace FlatSquares.Core
 		public float Scale { get; set; }
 
 		/// <summary>
-		/// Gets or sets the x.
+		/// Gets or sets the position.
 		/// </summary>
-		/// <value>The x.</value>
-		public virtual float X { get; set; }
-
-		/// <summary>
-		/// Gets or sets the y.
-		/// </summary>
-		/// <value>The y.</value>
-		public virtual float Y { get; set; }
+		/// <value>The position.</value>
+		public Vector Position { get; set; } = Vector.Zero;
 
 		/// <summary>
 		/// Adds the component.

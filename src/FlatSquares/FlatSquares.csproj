@@ -50,6 +50,7 @@
     <Compile Include="ISplash.cs" />
     <Compile Include="INodeFactory.cs" />
     <Compile Include="Common\MathHelper.cs" />
+    <Compile Include="Common\Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

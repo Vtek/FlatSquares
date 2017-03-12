@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlatSquares.Common;
 
 namespace FlatSquares
 {
@@ -33,16 +34,10 @@ namespace FlatSquares
 		float Rotation { get; set; }
 
 		/// <summary>
-		/// Gets or sets the x position.
+		/// Gets or sets the position.
 		/// </summary>
-		/// <value>The x.</value>
-		float X { get; set; }
-
-		/// <summary>
-		/// Gets or sets the y position.
-		/// </summary>
-		/// <value>The y position.</value>
-		float Y { get; set; }
+		/// <value>The position.</value>
+		Vector Position { get; set; }
 
 		/// <summary>
 		/// Gets the component.
