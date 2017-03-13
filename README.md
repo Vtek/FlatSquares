@@ -7,10 +7,10 @@ At the moment, i really want to come back on gamedev for fun, so i have decided 
 
 ## RoadMap
 - XPlatform and mobile first engine
-- Factory to allow developer to target different C# game engine (not a huge priority)
-- Sceen management
-- Audio management
+- Providers to allow developer to target different C# game engine (not a huge priority)
+- Scene management
 - Node system with common components to build a 2d game
+- Graphics/Audio/Input/Content providers
 - TMX files import
 - Embbed terminal
 - ...
