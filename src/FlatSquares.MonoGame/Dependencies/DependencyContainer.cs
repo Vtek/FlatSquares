@@ -1,11 +1,11 @@
 ﻿using Autofac;
 
-namespace FlatSquares.MonoGame
+namespace FlatSquares.MonoGame.Dependencies
 {
     /// <summary>
     /// Dependency container.
     /// </summary>
-	public class DependencyContainer : IDependencyContainer
+	class DependencyContainer : IDependencyContainer
 	{
         /// <summary>
         /// Gets the lifetime scope.

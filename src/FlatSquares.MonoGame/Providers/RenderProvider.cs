@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlatSquares.MonoGame
+namespace FlatSquares.MonoGame.Providers
 {
-	public class RenderProvider : IRenderProvider
+	class RenderProvider : IRenderProvider
 	{
 		public SpriteBatch SpriteBatch { get; set; }
 		public GraphicsDeviceManager GraphicsDeviceManager { get; set; }

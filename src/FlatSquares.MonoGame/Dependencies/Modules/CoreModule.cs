@@ -4,9 +4,9 @@ using System.Reflection;
 using Autofac;
 using FlatSquares.Core;
 
-namespace FlatSquares.MonoGame.Modules
+namespace FlatSquares.MonoGame.Dependencies.Modules
 {
-    public class CoreModule : Autofac.Module
+    class CoreModule : Autofac.Module
     {
         /// <summary>
         /// Load the module.
