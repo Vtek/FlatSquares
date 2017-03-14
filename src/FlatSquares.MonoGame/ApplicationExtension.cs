@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using FlatSquares.MonoGame;
+using FlatSquares.MonoGame.Modules;
 
 namespace FlatSquares
 {
@@ -10,7 +11,9 @@ namespace FlatSquares
 		public static IApplication UseMonoGame(this IApplication application)
 		{
 			var containerBuilder = new ContainerBuilder();
-			containerBuilder.RegisterModule<GameModule>();
+			containerBuilder.RegisterModule<InfrastructureModule>();
+            containerBuilder.RegisterModule<ProviderModule>();
+            containerBuilder.RegisterModule<CoreModule>();
 			var container = containerBuilder.Build();
 
 			container.InjectProperties(application);

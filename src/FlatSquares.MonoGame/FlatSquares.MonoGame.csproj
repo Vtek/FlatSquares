@@ -32,10 +32,12 @@
     <Compile Include="ContentProvider.cs" />
     <Compile Include="ApplicationExtension.cs" />
     <Compile Include="DependencyContainer.cs" />
-    <Compile Include="GameModule.cs" />
     <Compile Include="RenderProvider.cs" />
     <Compile Include="AppDomain.cs" />
     <Compile Include="FSGame.cs" />
+    <Compile Include="Modules\ProviderModule.cs" />
+    <Compile Include="Modules\InfrastructureModule.cs" />
+    <Compile Include="Modules\CoreModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlatSquares\FlatSquares.csproj">
@@ -56,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
