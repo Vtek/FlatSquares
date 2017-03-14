@@ -109,17 +109,6 @@ namespace FlatSquares.Core
 		/// <param name="elapsed">Elapsed time since last update.</param>
 		public void Update(float elapsed) => Navigation.GetCurrent().Update(elapsed);
 
-		/// <summary>
-		/// Sets the content root path.
-		/// </summary>
-		/// <returns>The content root path.</returns>
-		/// <param name="path">Path.</param>
-		public IApplication SetContentRootPath(string path)
-		{
-			ContentProvider.RootPath = path;
-			return this;
-		}
-
         public void Initialize(object paremeter = null)
         {
             Navigation.Start();

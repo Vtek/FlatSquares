@@ -6,12 +6,6 @@
 	public interface IContentProvider
 	{
 		/// <summary>
-		/// Gets or sets the root path.
-		/// </summary>
-		/// <value>The root path.</value>
-		string RootPath { get; set; }
-
-		/// <summary>
 		/// Load a resource.
 		/// </summary>
 		/// <returns>Resource.</returns>

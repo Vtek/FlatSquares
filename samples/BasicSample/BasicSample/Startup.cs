@@ -8,8 +8,7 @@ namespace BasicSample
 		public static void Launch(IApplication application)
 		{
 			application
-				.UseMonoGame()
-				.SetContentRootPath("Content")
+                .UseMonoGame(game => game.Content.RootDirectory = "Content")
 				.SetClearColor(Color.Black)
 				.SetVirtualResolution(1280, 720)
 				.Start<RootScene>();

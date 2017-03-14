@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using FlatSquares.MonoGame.Dependencies.Modules;
 using FlatSquares.MonoGame.Providers;
 using Microsoft.Xna.Framework;
@@ -11,12 +12,10 @@ namespace FlatSquares
     /// </summary>
     public static class ApplicationExtension
     {
-        static InternalGame internalGame;
-
         /// <summary>
         /// Use MonoGame providers.
         /// </summary>
-        public static IApplication UseMonoGame(this IApplication application)
+        public static IApplication UseMonoGame(this IApplication application, Action<Game> action = null)
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterModule<InfrastructureModule>();
@@ -24,9 +23,14 @@ namespace FlatSquares
             containerBuilder.RegisterModule<CoreModule>();
             var container = containerBuilder.Build();
 
-            internalGame = container.Resolve<InternalGame>();
+            var internalGame = container.Resolve<InternalGame>();
             container.InjectProperties(application);
             container.InjectProperties(internalGame);
+
+            if (action != null)
+                action(internalGame);
+
+            internalGame.Application = application;
 
             return application;
         }
@@ -52,9 +56,11 @@ namespace FlatSquares
             set
             {
                 _application = value;
-                _application.Started += (sender, e) => Run();
+                _application.Started += ApplicationStarted;
             }
         }
+
+
 
         /// <summary>
         /// Gets or sets the render provider.
@@ -75,16 +81,28 @@ namespace FlatSquares
         GraphicsDeviceManager GraphicsDeviceManager { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="T:FlatSquares.InternalGame"/> class.
+        /// </summary>
+        public InternalGame()
+        {
+            GraphicsDeviceManager = new GraphicsDeviceManager(this);
+        }
+
+        /// <summary>
+        /// Application started.
+        /// </summary>
+        void ApplicationStarted(object sender, EventArgs e)
+        {
+            Run();
+        }
+
+        /// <summary>
         /// Initialize the game
         /// </summary>
         protected override void Initialize()
         {
             ((ContentProvider)ContentProvider).ContentManager = Content;
             ((RenderProvider)RenderProvider).GraphicsDeviceManager = GraphicsDeviceManager;
-
-            GraphicsDeviceManager = new GraphicsDeviceManager(this);
-            GraphicsDeviceManager.SynchronizeWithVerticalRetrace = false;
-            IsFixedTimeStep = false;
 
             Application.Initialize();
             base.Initialize();

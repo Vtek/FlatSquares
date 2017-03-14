@@ -6,18 +6,6 @@ namespace FlatSquares.MonoGame.Providers
     {
         public ContentManager ContentManager { get; set; }
 
-        public string RootPath
-        {
-            get
-            {
-                return ContentManager.RootDirectory;
-            }
-            set
-            {
-                ContentManager.RootDirectory = value;
-            }
-        }
-
         public object Load(string resourcePath)
         {
             return ContentManager.Load<object>(resourcePath);

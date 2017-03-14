@@ -16,6 +16,7 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
         {
             builder.RegisterType<ContentProvider>().As<IContentProvider>().SingleInstance();
             builder.RegisterType<RenderProvider>().As<IRenderProvider>().SingleInstance();
+            builder.RegisterType<InternalGame>().AsSelf().SingleInstance();
             base.Load(builder);
         }
     }

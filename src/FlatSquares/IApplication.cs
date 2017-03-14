@@ -33,13 +33,6 @@ namespace FlatSquares
 		IApplication SetClearColor(Color color);
 
 		/// <summary>
-		/// Sets the content root path.
-		/// </summary>
-		/// <returns>The content root path.</returns>
-		/// <param name="path">Path.</param>
-		IApplication SetContentRootPath(string path);
-
-		/// <summary>
 		/// Sets the virtual resolution.
 		/// </summary>
 		/// <returns>The virtual resolution.</returns>
