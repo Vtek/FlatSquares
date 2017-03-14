@@ -1,9 +1,9 @@
 ﻿using FlatSquares;
 using FlatSquares.Common;
 
-namespace FruityFalls
+namespace BasicSample
 {
-	public class Startup
+	public static class Startup
 	{
 		public static void Launch(IApplication application)
 		{

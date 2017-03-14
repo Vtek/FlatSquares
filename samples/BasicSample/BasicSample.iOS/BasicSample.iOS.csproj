@@ -7,8 +7,8 @@
     <ProjectGuid>{489FE771-531D-418C-9E74-2D2F737D71DD}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FruityFalls.iOS</RootNamespace>
-    <AssemblyName>FruityFalls.iOS</AssemblyName>
+    <RootNamespace>BasicSample.iOS</RootNamespace>
+    <AssemblyName>BasicSample.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <MonoGamePlatform>iOS</MonoGamePlatform>
   </PropertyGroup>
@@ -120,9 +120,9 @@
       <Project>{4D05CD43-C14D-403B-AC6C-1A7B53B63AD6}</Project>
       <Name>FlatSquares.MonoGame</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FruityFalls\FruityFalls.csproj">
+    <ProjectReference Include="..\BasicSample\BasicSample.csproj">
       <Project>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</Project>
-      <Name>FruityFalls</Name>
+      <Name>BasicSample</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 using FlatSquares.Components;
 using FlatSquares.Core;
 
-namespace FruityFalls
+namespace BasicSample
 {
 	public class RootScene : Scene
 	{
@@ -12,9 +12,9 @@ namespace FruityFalls
 		/// <param name="paremeter">Paremeter.</param>
 		public override void Initialize(object paremeter = null)
 		{
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < 1; i++)
             {
-                for (var y = 0; y< 50; y++)
+                for (var y = 0; y< 1; y++)
                 {
                     var node = new Node();
                     node.Position = new Vector(i * 50, y * 50);
