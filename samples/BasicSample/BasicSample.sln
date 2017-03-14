@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSample", "BasicSample\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSample.iOS", "BasicSample.iOS\BasicSample.iOS.csproj", "{489FE771-531D-418C-9E74-2D2F737D71DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSample.Cross", "BasicSample.Cross\BasicSample.Cross.csproj", "{367C1997-4B3A-441A-954D-32F6EA4B2F1C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSample.DesktopGL", "BasicSample.DesktopGL\BasicSample.DesktopGL.csproj", "{476FAAED-5048-4C76-9093-516761CE453A}"
 EndProject
 Global
@@ -87,18 +85,6 @@ Global
 		{489FE771-531D-418C-9E74-2D2F737D71DD}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{489FE771-531D-418C-9E74-2D2F737D71DD}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{489FE771-531D-418C-9E74-2D2F737D71DD}.Debug|iPhone.Build.0 = Debug|iPhone
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|iPhone.Build.0 = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{367C1997-4B3A-441A-954D-32F6EA4B2F1C}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{476FAAED-5048-4C76-9093-516761CE453A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{476FAAED-5048-4C76-9093-516761CE453A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{476FAAED-5048-4C76-9093-516761CE453A}.Release|Any CPU.ActiveCfg = Release|Any CPU

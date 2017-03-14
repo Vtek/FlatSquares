@@ -2,23 +2,41 @@
 
 namespace FlatSquares.MonoGame
 {
+    /// <summary>
+    /// Dependency container.
+    /// </summary>
 	public class DependencyContainer : IDependencyContainer
 	{
-		ILifetimeScope Container { get; }
+        /// <summary>
+        /// Gets the lifetime scope.
+        /// </summary>
+        /// <value>The lifetime scope.</value>
+		ILifetimeScope LifetimeScope { get; }
 
-		public DependencyContainer(ILifetimeScope container)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> class.
+        /// </summary>
+        /// <param name="lifetimeScope">Lifetime scope.</param>
+		public DependencyContainer(ILifetimeScope lifetimeScope)
 		{
-			Container = container;
+			LifetimeScope = lifetimeScope;
 		}
 
-		public void Dispose()
-		{
-			Container.Dispose();
-		}
+        /// <summary>
+        /// Releases all resource used by the <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> object.
+        /// </summary>
+        /// <remarks>Call <see cref="Dispose"/> when you are finished using the
+        /// <see cref="T:FlatSquares.MonoGame.DependencyContainer"/>. The <see cref="Dispose"/> method leaves the
+        /// <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> in an unusable state. After calling
+        /// <see cref="Dispose"/>, you must release all references to the
+        /// <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> so the garbage collector can reclaim the memory
+        /// that the <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> was occupying.</remarks>
+		public void Dispose() => LifetimeScope.Dispose();
 
-		public TType GetInstance<TType>()
-		{
-			return Container.Resolve<TType>();
-		}
+        /// <summary>
+        /// Gets an instance corresponding to a type
+        /// </summary>
+        /// <returns>The instance.</returns>
+		public TType GetInstance<TType>() => LifetimeScope.Resolve<TType>();
 	}
 }
