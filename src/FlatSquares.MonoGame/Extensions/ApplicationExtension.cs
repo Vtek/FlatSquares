@@ -1,5 +1,6 @@
 ﻿using System;
 using Autofac;
+using FlatSquares.Common;
 using FlatSquares.MonoGame.Dependencies.Modules;
 using FlatSquares.MonoGame.Providers;
 using Microsoft.Xna.Framework;
@@ -15,7 +16,7 @@ namespace FlatSquares
         /// <summary>
         /// Use MonoGame providers.
         /// </summary>
-        public static IApplication UseMonoGame(this IApplication application, Action<Game> action = null)
+        public static IApplication UseMonoGame(this IApplication application, Action<Configuration> configure, Action<Game> action = null)
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterModule<InfrastructureModule>();
@@ -31,6 +32,11 @@ namespace FlatSquares
                 action(internalGame);
 
             internalGame.Application = application;
+
+            var configuration = new Configuration();
+            configure(configuration);
+
+            application.Apply(configuration);
 
             return application;
         }

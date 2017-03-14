@@ -57,6 +57,7 @@
     <Compile Include="ILoad.cs" />
     <Compile Include="IContentProvider.cs" />
     <Compile Include="IRenderProvider.cs" />
+    <Compile Include="Common\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

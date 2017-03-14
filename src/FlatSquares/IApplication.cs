@@ -25,19 +25,11 @@ namespace FlatSquares
 			where TSplash : ISplash
 			where TLoading : IScene;
 
-		/// <summary>
-		/// Sets the color for the clear operation.
-		/// </summary>
-		/// <returns>The clear color.</returns>
-		/// <param name="color">Color.</param>
-		IApplication SetClearColor(Color color);
-
-		/// <summary>
-		/// Sets the virtual resolution.
-		/// </summary>
-		/// <returns>The virtual resolution.</returns>
-		/// <param name="width">Width.</param>
-		/// <param name="height">Height.</param>
-		IApplication SetVirtualResolution(int width, int height);
+        /// <summary>
+        /// Apply the specified configuration.
+        /// </summary>
+        /// <returns>The apply.</returns>
+        /// <param name="configuration">Configuration.</param>
+        void Apply(Configuration configuration);
 	}
 }
