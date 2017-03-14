@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Autofac;
 using FlatSquares.Core;
 
 namespace FlatSquares.MonoGame.Modules
 {
-    public class CoreModule : Module
+    public class CoreModule : Autofac.Module
     {
         /// <summary>
         /// Load the module.
@@ -15,7 +17,7 @@ namespace FlatSquares.MonoGame.Modules
             builder.RegisterType<SceneFactory>().As<ISceneFactory>().SingleInstance();
             builder.RegisterType<Navigation>().As<INavigation>().SingleInstance();
 
-            foreach (var assembly in AppDomain.Assemblies)
+            foreach (var assembly in GetAssemblies())
             {
                 if (!assembly.FullName.StartsWith("Xamarin"))
                 {
@@ -28,6 +30,14 @@ namespace FlatSquares.MonoGame.Modules
                 }
             }
             base.Load(builder);
+        }
+
+        private IEnumerable<Assembly> GetAssemblies()
+        {
+            //Ugly code but there is no other way to retreive assemblies meta information
+            var appDomain = typeof(string).GetTypeInfo().Assembly.GetType("System.AppDomain").GetRuntimeProperty("CurrentDomain").GetMethod.Invoke(null, new object[] { });
+            var getAssembliesMethod = appDomain.GetType().GetRuntimeMethod("GetAssemblies", new System.Type[] { });
+            return getAssembliesMethod.Invoke(appDomain, new object[] { }) as Assembly[];
         }
     }
 }

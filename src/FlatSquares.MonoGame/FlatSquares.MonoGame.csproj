@@ -33,7 +33,6 @@
     <Compile Include="ApplicationExtension.cs" />
     <Compile Include="DependencyContainer.cs" />
     <Compile Include="RenderProvider.cs" />
-    <Compile Include="AppDomain.cs" />
     <Compile Include="FSGame.cs" />
     <Compile Include="Modules\ProviderModule.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
