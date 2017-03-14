@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Linq;
+using Autofac;
 using FlatSquares.Core;
 
 namespace FlatSquares.MonoGame.Modules
