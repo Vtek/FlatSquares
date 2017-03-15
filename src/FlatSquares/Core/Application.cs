@@ -44,6 +44,11 @@ namespace FlatSquares.Core
         /// <value>The color of the clear.</value>
         Color ClearColor { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:FlatSquares.Core.Application"/> class.
+        /// </summary>
+        internal Application() {}
+
 		/// <summary>
 		/// Define basic game scene.
 		/// </summary>

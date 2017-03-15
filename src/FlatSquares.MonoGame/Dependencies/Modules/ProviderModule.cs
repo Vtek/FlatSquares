@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using FlatSquares.Core;
 using FlatSquares.MonoGame.Providers;
 
 namespace FlatSquares.MonoGame.Dependencies.Modules

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using Autofac;
 using FlatSquares.Common;
 using FlatSquares.MonoGame.Dependencies.Modules;
@@ -6,13 +8,39 @@ using FlatSquares.MonoGame.Providers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FlatSquares
+namespace FlatSquares.Core
 {
     /// <summary>
     /// Application extension.
     /// </summary>
     public static class ApplicationExtension
     {
+        /// <summary>
+        /// Register a scene.
+        /// </summary>
+        public static IApplication RegisterScene<TScene>(this IApplication application) where TScene : IScene
+        {
+            CoreModule.Scenes.Add(typeof(TScene));
+            return application;
+        }
+
+        /// <summary>
+        /// Registers scenes from an Assembly.
+        /// </summary>
+        /// <param name="assembly">Assembly.</param>
+        public static IApplication RegisterScenes(this IApplication application, Assembly assembly)
+        {
+            var sceneTypes = assembly.DefinedTypes
+                                     .Where(type => type.ImplementedInterfaces.Any(i => i.Name == typeof(IScene).Name))
+                                     .Select(type => type.AsType())
+                                     .ToArray();
+
+            foreach (var type in sceneTypes)
+                CoreModule.Scenes.Add(type);
+
+            return application;
+        }
+
         /// <summary>
         /// Use MonoGame providers.
         /// </summary>

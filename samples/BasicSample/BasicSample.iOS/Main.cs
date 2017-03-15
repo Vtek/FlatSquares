@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FlatSquares.Common;
 using FlatSquares.Core;
 #if MONOMAC
 using MonoMac.AppKit;
 using MonoMac.Foundation;
 #elif __IOS__ || __TVOS__
 using Foundation;
+using Microsoft.Xna.Framework;
 using UIKit;
 #endif
 #endregion
@@ -23,7 +25,21 @@ namespace BasicSample.iOS
     {
         internal static void RunGame()
         {
-            Startup.Launch(new Application());
+            Launcher.Application
+                    .RegisterScenes(typeof(RootScene).Assembly)
+                    .UseMonoGame(SetConfiguration, SetupMonoGame)
+                    .Start<RootScene>();
+        }
+
+        static void SetConfiguration(Configuration configuration)
+        {
+            configuration.SetClearColor(FlatSquares.Common.Color.Black);
+            configuration.SetVirtualResolution(1280, 720);
+        }
+
+        static void SetupMonoGame(Game game)
+        {
+            game.Content.RootDirectory = "Content";
         }
 
         /// <summary>

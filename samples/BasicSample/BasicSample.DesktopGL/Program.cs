@@ -2,6 +2,8 @@
 using System;
 using FlatSquares.Core;
 using BasicSample;
+using FlatSquares.Common;
+using Microsoft.Xna.Framework;
 #if MONOMAC
 using MonoMac.AppKit;
 using MonoMac.Foundation;
@@ -24,11 +26,24 @@ namespace BasicSample.DesktopGL
 
         internal static void RunGame()
         {
-            application = new Application();
-            Startup.Launch(application);
+            Launcher.Application
+                    .RegisterScenes(typeof(RootScene).Assembly)
+                    .UseMonoGame(SetConfiguration, SetupMonoGame)
+                    .Start<RootScene>();
 #if !__IOS__ && !__TVOS__
             application.Dispose();
 #endif
+        }
+
+        static void SetConfiguration(Configuration configuration)
+        {
+            configuration.SetClearColor(FlatSquares.Common.Color.Black);
+            configuration.SetVirtualResolution(1280, 720);
+        }
+
+        static void SetupMonoGame(Game game)
+        {
+            game.Content.RootDirectory = "Content";
         }
 
         /// <summary>

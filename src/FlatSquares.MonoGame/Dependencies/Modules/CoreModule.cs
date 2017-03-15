@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Autofac;
 using FlatSquares.Core;
@@ -8,6 +8,8 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
 {
     class CoreModule : Autofac.Module
     {
+        internal static IList<Type> Scenes { get; set; } = new List<Type>();
+
         /// <summary>
         /// Load the module.
         /// </summary>
@@ -17,7 +19,14 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
             builder.RegisterType<SceneFactory>().As<ISceneFactory>().SingleInstance();
             builder.RegisterType<Navigation>().As<INavigation>().SingleInstance();
 
-            foreach (var assembly in GetAssemblies())
+            foreach (var scene in Scenes)
+            {
+                builder.RegisterTypes(scene)
+                       .OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
+            }
+
+            /*
+            foreach (var assembly in GetAssemblies())//TODO need a huge refactoring =(
             {
                 if (!assembly.FullName.StartsWith("Xamarin"))
                 {
@@ -28,7 +37,7 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
                                       .ToArray())
                         .OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
                 }
-            }
+            }*/
             base.Load(builder);
         }
 
