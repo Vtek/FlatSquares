@@ -14,3 +14,13 @@ At the moment, i really want to come back on gamedev for fun, so i have decided 
 - TMX files import
 - Embbed terminal
 - ...
+
+## Component lifecycle
+
+| Lifecycles | Interfaces  | Description              |
+| :--------: |:-----------:|--------------------------|
+| Load       | ILoad       | Load content             |
+| Initialize | IInitialize | Initialize               |
+| Update     | IUpdate     | Update                   |
+| Render     | IRender     | Draw                     |
+| Dispose    | IDisposable | Dispose / Unload content |
