@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace FlatSquares.Core
@@ -63,6 +62,24 @@ namespace FlatSquares.Core
             Nodes.Add(node);
             return node;
         }
+
+        /// <summary>
+        /// Gets a node corresponding to a key.
+        /// </summary>
+        /// <returns>The node.</returns>
+        /// <param name="key">Key.</param>
+        public INode GetNode(string key) => Nodes.SingleOrDefault(node => node.Key == key);
+
+        /// <summary>
+        /// Remove a node corresponding to a key.
+        /// </summary>
+        /// <param name="key">Key.</param>
+        public void RemoveNode(string key)
+        {
+            var node = GetNode(key);
+            Nodes.Remove(node);
+            node.Dispose();
+        } 
 
         /// <summary>
         /// Gets the renderables.

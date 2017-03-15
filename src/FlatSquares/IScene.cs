@@ -34,6 +34,19 @@ namespace FlatSquares
         INode CreateNode(string key);
 
         /// <summary>
+        /// Gets a node corresponding to a key.
+        /// </summary>
+        /// <returns>The node.</returns>
+        /// <param name="key">Key.</param>
+        INode GetNode(string key);
+
+        /// <summary>
+        /// Remove a node corresponding to a key.
+        /// </summary>
+        /// <param name="key">Key.</param>
+        void RemoveNode(string key);
+
+        /// <summary>
         /// Gets the initializables.
         /// </summary>
         /// <returns>The initializables.</returns>
