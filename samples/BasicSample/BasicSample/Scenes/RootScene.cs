@@ -19,7 +19,7 @@ namespace BasicSample
             {
                 for (var y = 0; y < 1; y++)
                 {
-                    var node = new Node();
+                    var node = CreateNode($"Node{i}");
                     node.Position = new Vector(i * 50, y * 50);
                     node.AddComponent(new SpinnerComponent
                     {
@@ -31,7 +31,6 @@ namespace BasicSample
                         TexturePath = "Sprites/spinner",
                         Origin = new Vector(25f, 25f)
                     });
-                    Nodes.Add(node);
                 }
             }
 

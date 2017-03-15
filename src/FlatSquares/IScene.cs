@@ -21,16 +21,17 @@ namespace FlatSquares
         bool NeedToBeLoaded { get; set; }
 
         /// <summary>
-        /// Gets or sets the nodes.
-        /// </summary>
-        /// <value>The nodes.</value>
-        IList<INode> Nodes { get; }
-
-        /// <summary>
         /// Create the scene with specified parameters.
         /// </summary>
         /// <param name="parameters">Parameters.</param>
         void Create(object parameters = null);
+
+        /// <summary>
+        /// Create a node.
+        /// </summary>
+        /// <returns>The created node.</returns>
+        /// <param name="key">Node key.</param>
+        INode CreateNode(string key);
 
         /// <summary>
         /// Gets the initializables.

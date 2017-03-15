@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -31,7 +32,7 @@ namespace FlatSquares.Core
         /// Gets or sets the nodes.
         /// </summary>
         /// <value>The nodes.</value>
-        public IList<INode> Nodes { get; set; } = new List<INode>();
+        ICollection<INode> Nodes { get; set; } = new List<INode>();
 
         /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Scene"/> object.
@@ -47,6 +48,21 @@ namespace FlatSquares.Core
         /// </summary>
         /// <param name="parameters">Parameters.</param>
         public abstract void Create(object parameters = null);
+
+        /// <summary>
+        /// Create a node.
+        /// </summary>
+        /// <returns>The created node.</returns>
+        /// <param name="key">Node key.</param>
+        public INode CreateNode(string key)
+        {
+            if (Nodes.Any(n => n.Key == key))
+                throw new ArgumentException($"Scene {Key} already contains {key}");
+
+            var node = new Node { Key = key };
+            Nodes.Add(node);
+            return node;
+        }
 
         /// <summary>
         /// Gets the renderables.

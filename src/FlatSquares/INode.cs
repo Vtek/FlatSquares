@@ -13,7 +13,7 @@ namespace FlatSquares
         /// Gets or sets the key.
         /// </summary>
         /// <value>The key.</value>
-        string Key { get; set; }
+        string Key { get; }
 
         /// <summary>
         /// Gets or sets the components.
