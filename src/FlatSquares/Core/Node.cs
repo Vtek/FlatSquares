@@ -53,7 +53,7 @@ namespace FlatSquares.Core
         public void AddComponent(IComponent component)
         {
             if (Components.Any(c => c.GetType() == component.GetType()))
-                throw new ArgumentException();
+                throw new ArgumentException($"Node {Key} already contains {component.GetType().Name}");
 
             component.SetNode(this);
             (Components as IList<IComponent>)?.Add(component);
