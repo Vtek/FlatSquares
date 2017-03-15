@@ -4,17 +4,17 @@ using FlatSquares.Core;
 
 namespace BasicSample
 {
-	public class RootScene : Scene
-	{
-		/// <summary>
-		/// Initialize this instance with the specified paremeter.
-		/// </summary>
-		/// <param name="paremeter">Paremeter.</param>
-		public override void Initialize(object paremeter = null)
-		{
+    public class RootScene : Scene
+    {
+        /// <summary>
+        /// Initialize this instance with the specified paremeter.
+        /// </summary>
+        /// <param name="paremeter">Paremeter.</param>
+        public override void Initialize(object paremeter = null)
+        {
             for (var i = 0; i < 1; i++)
             {
-                for (var y = 0; y< 1; y++)
+                for (var y = 0; y < 1; y++)
                 {
                     var node = new Node();
                     node.Position = new Vector(i * 50, y * 50);
@@ -31,7 +31,7 @@ namespace BasicSample
                     Nodes.Add(node);
                 }
             }
-			
-		}
-	}
+
+        }
+    }
 }

@@ -3,22 +3,22 @@ using FlatSquares.Core;
 
 namespace FlatSquares.Components
 {
-	public class SpriteComponent : Component, IRender, ILoad
-	{
-		object _internalResource;
+    public class SpriteComponent : Component, IRender, ILoad
+    {
+        object _internalResource;
 
-		public Vector Origin { get; set; } = Vector.Zero; //TODO
+        public Vector Origin { get; set; } = Vector.Zero; //TODO
 
-		public Vector Position => Node.Position;
-		public float Rotation => Node.Rotation;
-		public float Scale => Node.Scale;
+        public Vector Position => Node.Position;
+        public float Rotation => Node.Rotation;
+        public float Scale => Node.Scale;
 
 
-		public Rectangle Source { get; set; }
-		public string TexturePath { get; set; }
+        public Rectangle Source { get; set; }
+        public string TexturePath { get; set; }
 
-		public T GetRenderObject<T>() => (T)_internalResource;
+        public T GetRenderObject<T>() => (T)_internalResource;
 
-		public void Load(IContentProvider contentProvider) => _internalResource = contentProvider.Load(TexturePath);
-	}
+        public void Load(IContentProvider contentProvider) => _internalResource = contentProvider.Load(TexturePath);
+    }
 }
