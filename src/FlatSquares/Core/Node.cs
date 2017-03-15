@@ -26,7 +26,7 @@ namespace FlatSquares.Core
         /// Gets or sets the key.
         /// </summary>
         /// <value>The key.</value>
-        public string Key { get; set; }
+        public string Key { get; internal set; }
 
         /// <summary>
         /// Gets or sets the rotation.
