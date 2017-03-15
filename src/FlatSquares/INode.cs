@@ -19,7 +19,7 @@ namespace FlatSquares
         /// Gets or sets the components.
         /// </summary>
         /// <value>The components.</value>
-        IEnumerable<IComponent> Components { get; }
+        ICollection<IComponent> Components { get; }
 
         /// <summary>
         /// Gets or sets the scale.
