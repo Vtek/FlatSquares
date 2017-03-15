@@ -6,7 +6,7 @@ namespace FlatSquares
     /// <summary>
     /// Define a FlatSquares application.
     /// </summary>
-    public interface IApplication : IDisposable, IDraw, IUpdate, IInitialize
+    public interface IApplication : IDisposable, IDraw, IUpdate
     {
         /// <summary>
         /// Occurs when started.
@@ -17,6 +17,11 @@ namespace FlatSquares
         /// Start the application.
         /// </summary>
         void Start<TRoot>() where TRoot : IScene;
+
+        /// <summary>
+        /// Starts the navigation.
+        /// </summary>
+        void StartNavigation();
 
         /// <summary>
         /// Define basic game scene.

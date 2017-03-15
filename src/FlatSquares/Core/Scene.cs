@@ -7,7 +7,7 @@ namespace FlatSquares.Core
     /// <summary>
     /// Scene.
     /// </summary>
-    public class Scene : IScene
+    public abstract class Scene : IScene
     {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:FlatSquares.Core.Scene"/> is enabled.
@@ -43,6 +43,27 @@ namespace FlatSquares.Core
         public void Dispose() => Nodes.ForEach(node => node.Dispose());
 
         /// <summary>
+        /// Create the scene with specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters.</param>
+        public abstract void Create(object parameters = null);
+
+        /// <summary>
+        /// Gets the renderables.
+        /// </summary>
+        /// <returns>The renderables.</returns>
+        public IEnumerable<IInitialize> GetInitializables()
+        {
+            //TODO will need optimisation
+            var initializables = new List<IInitialize>();
+            foreach (var node in Nodes)
+            {
+                initializables.AddRange(node.Components.OfType<IInitialize>().ToList());
+            }
+            return initializables;
+        }
+
+        /// <summary>
         /// Gets the renderables.
         /// </summary>
         /// <returns>The renderables.</returns>
@@ -73,17 +94,18 @@ namespace FlatSquares.Core
         }
 
         /// <summary>
-        /// Initialize this instance with the specified paremeter.
+        /// Gets the updatables.
         /// </summary>
-        /// <param name="paremeter">Paremeter.</param>
-        public virtual void Initialize(object paremeter = null)
+        /// <returns>The updatables.</returns>
+        public IEnumerable<IUpdate> GetUpdatables()
         {
+            //TODO will need optimisation
+            var updatables = new List<IUpdate>();
+            foreach (var node in Nodes)
+            {
+                updatables.AddRange(node.Components.OfType<IUpdate>().ToList());
+            }
+            return updatables;
         }
-
-        /// <summary>
-        /// Perform an update.
-        /// </summary>
-        /// <param name="elapsed">Elapsed time since last update.</param>
-        public void Update(float elapsed) => Nodes.ForEach(node => node.Components.ForEach(component => component.Update(elapsed)));
     }
 }

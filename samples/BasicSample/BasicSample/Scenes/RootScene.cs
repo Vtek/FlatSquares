@@ -4,13 +4,16 @@ using FlatSquares.Core;
 
 namespace BasicSample
 {
+    /// <summary>
+    /// Root scene.
+    /// </summary>
     public class RootScene : Scene
     {
         /// <summary>
-        /// Initialize this instance with the specified paremeter.
+        /// Create the scene with specified parameters.
         /// </summary>
-        /// <param name="paremeter">Paremeter.</param>
-        public override void Initialize(object paremeter = null)
+        /// <param name="parameters">Parameters.</param>
+        public override void Create(object parameters = null)
         {
             for (var i = 0; i < 1; i++)
             {

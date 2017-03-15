@@ -81,20 +81,15 @@ namespace FlatSquares.Core
         }
 
         /// <summary>
-        /// Initialize the application.
+        /// Starts the navigation.
         /// </summary>
-        /// <returns>The initialize.</returns>
-        /// <param name="paremeter">Paremeter.</param>
-        public void Initialize(object paremeter = null)
-        {
-            Navigation.Start();
-        }
+        public void StartNavigation() => Navigation.Start();
 
         /// <summary>
         /// Perform an update.
         /// </summary>
         /// <param name="elapsed">Elapsed time since last update.</param>
-        public void Update(float elapsed) => Navigation.GetCurrent().Update(elapsed);
+        public void Update(float elapsed) => Navigation.GetCurrent().GetUpdatables().ForEach(component => component.Update(elapsed));
 
         /// <summary>
         /// Perform a draw

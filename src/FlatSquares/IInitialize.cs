@@ -6,9 +6,8 @@
     public interface IInitialize
     {
         /// <summary>
-        /// Initialize this instance with the specified paremeter.
+        /// Initialize this instance.
         /// </summary>
-        /// <param name="paremeter">Paremeter.</param>
-        void Initialize(object paremeter = null);
+        void Initialize();
     }
 }

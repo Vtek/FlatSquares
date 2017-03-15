@@ -31,12 +31,5 @@
         /// </summary>
         /// <param name="node">Node.</param>
         public void SetNode(INode node) => Node = node;
-
-        /// <summary>
-        /// Update the specified elapsed.
-        /// </summary>
-        /// <returns>The update.</returns>
-        /// <param name="elapsed">Elapsed.</param>
-        public virtual void Update(float elapsed) { }
     }
 }

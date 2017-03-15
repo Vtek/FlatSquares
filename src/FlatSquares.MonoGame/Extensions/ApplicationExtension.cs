@@ -138,7 +138,7 @@ namespace FlatSquares.Core
             ((ContentProvider)ContentProvider).ContentManager = Content;
             ((RenderProvider)RenderProvider).GraphicsDeviceManager = GraphicsDeviceManager;
 
-            Application.Initialize();
+            Application.StartNavigation();
             base.Initialize();
         }
 
