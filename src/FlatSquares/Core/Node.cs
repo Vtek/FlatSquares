@@ -69,10 +69,19 @@ namespace FlatSquares.Core
         /// Gets the component.
         /// </summary>
         /// <returns>The component.</returns>
-        /// <typeparam name="TComponent">The 1st type parameter.</typeparam>
         public TComponent GetComponent<TComponent>() where TComponent : IComponent
             =>
                 (TComponent)Components.SingleOrDefault(component => component.GetType().FullName == typeof(TComponent).FullName);
+
+        /// <summary>
+        /// Removes the component.
+        /// </summary>
+        public void RemoveComponent<TComponent>() where TComponent : IComponent
+        {
+            var component = GetComponent<TComponent>();
+            Components.Remove(component);
+            component.Dispose();
+        }
 
         /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Core.Node"/> object.

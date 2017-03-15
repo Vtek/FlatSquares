@@ -25,6 +25,7 @@ namespace FlatSquares
         /// Gets or sets the components.
         /// </summary>
         /// <value>The components.</value>
+        [Obsolete]
         ICollection<IComponent> Components { get; }
 
         /// <summary>
@@ -49,7 +50,6 @@ namespace FlatSquares
         /// Gets the component.
         /// </summary>
         /// <returns>The component.</returns>
-        /// <typeparam name="TComponent">The 1st type parameter.</typeparam>
         TComponent GetComponent<TComponent>() where TComponent : IComponent;
 
         /// <summary>
@@ -57,5 +57,10 @@ namespace FlatSquares
         /// </summary>
         /// <param name="component">Component.</param>
         void AddComponent(IComponent component);
+
+        /// <summary>
+        /// Removes the component.
+        /// </summary>
+        void RemoveComponent<TComponent>() where TComponent : IComponent;
     }
 }
