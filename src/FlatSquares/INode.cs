@@ -26,7 +26,7 @@ namespace FlatSquares
         /// </summary>
         /// <value>The components.</value>
         [Obsolete]
-        ICollection<IComponent> Components { get; }
+        ICollection<IComponent> Components { get; } //TODO component collection can't be public
 
         /// <summary>
         /// Gets or sets the scale.
