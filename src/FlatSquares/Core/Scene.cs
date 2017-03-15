@@ -58,7 +58,7 @@ namespace FlatSquares.Core
             if (Nodes.Any(n => n.Key == key))
                 throw new ArgumentException($"Scene {Key} already contains {key}");
 
-            var node = new Node { Key = key };
+            var node = new Node { Key = key, Scene = this };
             Nodes.Add(node);
             return node;
         }

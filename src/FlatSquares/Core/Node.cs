@@ -29,6 +29,12 @@ namespace FlatSquares.Core
         public string Key { get; internal set; }
 
         /// <summary>
+        /// Gets the scene.
+        /// </summary>
+        /// <value>The scene.</value>
+        public IScene Scene { get; internal set; }
+
+        /// <summary>
         /// Gets or sets the rotation.
         /// </summary>
         /// <value>The rotation.</value>
@@ -60,17 +66,6 @@ namespace FlatSquares.Core
         }
 
         /// <summary>
-        /// Releases all resource used by the <see cref="T:FlatSquares.Core.Node"/> object.
-        /// </summary>
-        /// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="T:FlatSquares.Core.Node"/>. The
-        /// <see cref="Dispose"/> method leaves the <see cref="T:FlatSquares.Core.Node"/> in an unusable state. After calling
-        /// <see cref="Dispose"/>, you must release all references to the <see cref="T:FlatSquares.Core.Node"/> so the garbage
-        /// collector can reclaim the memory that the <see cref="T:FlatSquares.Core.Node"/> was occupying.</remarks>
-        public void Dispose()
-            =>
-                Components.ForEach(item => item.Dispose());
-
-        /// <summary>
         /// Gets the component.
         /// </summary>
         /// <returns>The component.</returns>
@@ -78,5 +73,18 @@ namespace FlatSquares.Core
         public TComponent GetComponent<TComponent>() where TComponent : IComponent
             =>
                 (TComponent)Components.SingleOrDefault(component => component.GetType().FullName == typeof(TComponent).FullName);
+
+        /// <summary>
+        /// Releases all resource used by the <see cref="T:FlatSquares.Core.Node"/> object.
+        /// </summary>
+        /// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="T:FlatSquares.Core.Node"/>. The
+        /// <see cref="Dispose"/> method leaves the <see cref="T:FlatSquares.Core.Node"/> in an unusable state. After calling
+        /// <see cref="Dispose"/>, you must release all references to the <see cref="T:FlatSquares.Core.Node"/> so the garbage
+        /// collector can reclaim the memory that the <see cref="T:FlatSquares.Core.Node"/> was occupying.</remarks>
+        public void Dispose()
+        {
+            Components.ForEach(item => item.Dispose());
+            Scene = null;
+        }
     }
 }

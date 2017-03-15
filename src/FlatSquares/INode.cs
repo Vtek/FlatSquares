@@ -16,6 +16,12 @@ namespace FlatSquares
         string Key { get; }
 
         /// <summary>
+        /// Gets the scene.
+        /// </summary>
+        /// <value>The scene.</value>
+        IScene Scene { get; }
+
+        /// <summary>
         /// Gets or sets the components.
         /// </summary>
         /// <value>The components.</value>
