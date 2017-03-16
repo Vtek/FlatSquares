@@ -9,7 +9,13 @@
         /// Gets or sets a value indicating whether this <see cref="T:FlatSquares.Core.Component"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        public bool Enabled { get; set; } = true; //TODO Component is also enabled if Node is enabled !
+        public bool Enabled { get; set; } = true;
+
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="T:FlatSquares.Core.Component"/> is active.
+        /// </summary>
+        /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        public bool Active => Enabled && Node.Enabled;
 
         /// <summary>
         /// Gets the node.
