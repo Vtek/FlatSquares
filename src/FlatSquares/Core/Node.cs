@@ -11,6 +11,16 @@ namespace FlatSquares.Core
     public class Node : INode
     {
         /// <summary>
+        /// Occurs when component added.
+        /// </summary>
+        public event EventHandler<IComponent> ComponentAdded;
+
+        /// <summary>
+        /// Occurs when component removed.
+        /// </summary>
+        public event EventHandler<IComponent> ComponentRemoved;
+
+        /// <summary>
         /// Gets or sets the components.
         /// </summary>
         /// <value>The components.</value>
@@ -52,6 +62,7 @@ namespace FlatSquares.Core
         /// <value>The position.</value>
         public Vector Position { get; set; } = Vector.Zero;
 
+
         /// <summary>
         /// Adds the component.
         /// </summary>
@@ -63,6 +74,7 @@ namespace FlatSquares.Core
 
             component.SetNode(this);
             Components.Add(component);
+            ComponentAdded?.Invoke(this, component);
         }
 
         /// <summary>
@@ -80,6 +92,7 @@ namespace FlatSquares.Core
         {
             var component = GetComponent<TComponent>();
             Components.Remove(component);
+            ComponentRemoved?.Invoke(this, component);
             component.Dispose();
         }
 

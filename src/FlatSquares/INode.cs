@@ -10,6 +10,16 @@ namespace FlatSquares
     public interface INode : IEnabled, IDisposable
     {
         /// <summary>
+        /// Occurs when component added.
+        /// </summary>
+        event EventHandler<IComponent> ComponentAdded;
+
+        /// <summary>
+        /// Occurs when component removed.
+        /// </summary>
+        event EventHandler<IComponent> ComponentRemoved;
+
+        /// <summary>
         /// Gets or sets the key.
         /// </summary>
         /// <value>The key.</value>
