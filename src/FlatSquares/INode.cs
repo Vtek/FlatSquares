@@ -7,7 +7,7 @@ namespace FlatSquares
     /// <summary>
     /// Define a node game object
     /// </summary>
-    public interface INode : IEnabled, IDisposable
+    public interface INode : IDisposable, IInitialize, IEnabled
     {
         /// <summary>
         /// Occurs when component added.

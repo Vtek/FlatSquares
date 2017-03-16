@@ -50,12 +50,10 @@ namespace FlatSquares.Core
         /// <returns>The pop.</returns>
         public void Pop()
         {
-            var current = GetCurrent();
-
-            if (current.GetType() != SceneFactory.Root.GetType())
+            if (Current.GetType() != SceneFactory.Root.GetType())
             {
-                current.Dispose();
-                Scenes.Remove(current);
+                Current.Dispose();
+                Scenes.Remove(Current);
                 Scenes.Last().Enabled = true;
             }
         }
@@ -75,8 +73,7 @@ namespace FlatSquares.Core
             Scenes.Clear();
 
             SceneFactory.Root.Create();
-            SceneFactory.Root.GetLoadables().ForEach(element => element.Load(ContentProvider));
-            SceneFactory.Root.GetInitializables().ForEach(element => element.Initialize());
+            SceneFactory.Root.Initialize();
 
             Scenes.Add(SceneFactory.Root);
             SceneFactory.Root.Enabled = true;
@@ -90,13 +87,10 @@ namespace FlatSquares.Core
         {
             var scene = SceneFactory.Create<TScene>();
             scene.Create(parameter);
-            scene.GetLoadables().ForEach(element => element.Load(ContentProvider));
-            scene.GetInitializables().ForEach(element => element.Initialize());
+            scene.Initialize();
 
-            var current = GetCurrent();
-
-            if (current != null)
-                current.Enabled = false;
+            if (Current != null)
+                Current.Enabled = false;
 
             Scenes.Add(scene);
         }
@@ -105,7 +99,7 @@ namespace FlatSquares.Core
         /// Gets the current scene.
         /// </summary>
         /// <returns>The current.</returns>
-        public IScene GetCurrent() => Scenes.LastOrDefault();
+        public IScene Current => Scenes.LastOrDefault();
 
         /// <summary>
         /// Start.
@@ -118,8 +112,7 @@ namespace FlatSquares.Core
             if (SceneFactory.Splash != null)
             {
                 SceneFactory.Splash.Create();
-                SceneFactory.Splash.GetLoadables().ForEach(element => element.Load(ContentProvider));
-                SceneFactory.Splash.GetInitializables().ForEach(element => element.Initialize());
+                SceneFactory.Splash.Initialize();
                 SceneFactory.Splash.Finished += SplashFinished;
                 Scenes.Add(SceneFactory.Splash);
             }

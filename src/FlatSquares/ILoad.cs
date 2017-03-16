@@ -8,7 +8,6 @@
         /// <summary>
         /// Loads contents.
         /// </summary>
-        /// <param name="contentProvider">Content provider.</param>
-        void Load(IContentProvider contentProvider);
+        void Load();
     }
 }

@@ -33,6 +33,34 @@ namespace FlatSquares.Core
         /// <value>The nodes.</value>
         ICollection<INode> Nodes { get; set; } = new List<INode>();
 
+        public IEnumerable<IRender> Renderables
+        {
+            get
+            {
+                //TODO will need optimisation
+                var renderables = new List<IRender>();
+                foreach (var node in Nodes)
+                {
+                    renderables.AddRange(node.Components.OfType<IRender>().ToList());
+                }
+                return renderables;
+            }
+        }
+
+        public IEnumerable<IUpdate> Updatables
+        {
+            get
+            {
+                //TODO will need optimisation
+                var updatables = new List<IUpdate>();
+                foreach (var node in Nodes)
+                {
+                    updatables.AddRange(node.Components.OfType<IUpdate>().ToList());
+                }
+                return updatables;
+            }
+        }
+
         /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Scene"/> object.
         /// </summary>
@@ -47,6 +75,11 @@ namespace FlatSquares.Core
         /// </summary>
         /// <param name="parameters">Parameters.</param>
         public abstract void Create(object parameters = null);
+
+        /// <summary>
+        /// Initialize the scene.
+        /// </summary>
+        public void Initialize() => Nodes.ForEach(node => node.Initialize());
 
         /// <summary>
         /// Create a node.
@@ -79,66 +112,6 @@ namespace FlatSquares.Core
             var node = GetNode(key);
             Nodes.Remove(node);
             node.Dispose();
-        } 
-
-        /// <summary>
-        /// Gets the renderables.
-        /// </summary>
-        /// <returns>The renderables.</returns>
-        public IEnumerable<IInitialize> GetInitializables()
-        {
-            //TODO will need optimisation
-            var initializables = new List<IInitialize>();
-            foreach (var node in Nodes)
-            {
-                initializables.AddRange(node.Components.OfType<IInitialize>().ToList());
-            }
-            return initializables;
-        }
-
-        /// <summary>
-        /// Gets the renderables.
-        /// </summary>
-        /// <returns>The renderables.</returns>
-        public IEnumerable<IRender> GetRenderables()
-        {
-            //TODO will need optimisation
-            var renderables = new List<IRender>();
-            foreach (var node in Nodes)
-            {
-                renderables.AddRange(node.Components.OfType<IRender>().ToList());
-            }
-            return renderables;
-        }
-
-        /// <summary>
-        /// Gets the loadables.
-        /// </summary>
-        /// <returns>The loadables.</returns>
-        public IEnumerable<ILoad> GetLoadables()
-        {
-            //TODO will need optimisation
-            var loadables = new List<ILoad>();
-            foreach (var node in Nodes)
-            {
-                loadables.AddRange(node.Components.OfType<ILoad>().ToList());
-            }
-            return loadables;
-        }
-
-        /// <summary>
-        /// Gets the updatables.
-        /// </summary>
-        /// <returns>The updatables.</returns>
-        public IEnumerable<IUpdate> GetUpdatables()
-        {
-            //TODO will need optimisation
-            var updatables = new List<IUpdate>();
-            foreach (var node in Nodes)
-            {
-                updatables.AddRange(node.Components.OfType<IUpdate>().ToList());
-            }
-            return updatables;
         }
     }
 }

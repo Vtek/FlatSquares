@@ -89,7 +89,7 @@ namespace FlatSquares.Core
         /// Perform an update.
         /// </summary>
         /// <param name="elapsed">Elapsed time since last update.</param>
-        public void Update(float elapsed) => Navigation.GetCurrent().GetUpdatables().ForEach(component => component.Update(elapsed));
+        public void Update(float elapsed) => Navigation.Current.Updatables.ForEach(component => component.Update(elapsed));
 
         /// <summary>
         /// Perform a draw
@@ -97,7 +97,7 @@ namespace FlatSquares.Core
         public void Draw()
         {
             RenderProvider.Begin(ClearColor);
-            Navigation.GetCurrent().GetRenderables().ForEach(RenderProvider.Draw);
+            Navigation.Current.Renderables.ForEach(RenderProvider.Draw);
             RenderProvider.End();
         }
 

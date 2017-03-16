@@ -34,6 +34,6 @@ namespace FlatSquares
         /// Gets the current scene.
         /// </summary>
         /// <returns>The current scene.</returns>
-        IScene GetCurrent();
+        IScene Current { get; }
     }
 }

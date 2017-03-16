@@ -7,7 +7,7 @@ namespace FlatSquares.Components
     {
         object _internalResource;
 
-        public Vector Origin { get; set; } = Vector.Zero; //TODO
+        public Vector Origin { get; set; } = Vector.Zero;
 
         public Vector Position => Node.Position;
         public float Rotation => Node.Rotation;
@@ -19,6 +19,6 @@ namespace FlatSquares.Components
 
         public T GetRenderObject<T>() => (T)_internalResource;
 
-        public void Load(IContentProvider contentProvider) => _internalResource = contentProvider.Load(TexturePath);
+        public void Load() => _internalResource = null; //TODO Providers need to be inject for easier developement of components
     }
 }

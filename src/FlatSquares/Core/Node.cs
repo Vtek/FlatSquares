@@ -62,7 +62,6 @@ namespace FlatSquares.Core
         /// <value>The position.</value>
         public Vector Position { get; set; } = Vector.Zero;
 
-
         /// <summary>
         /// Adds the component.
         /// </summary>
@@ -97,6 +96,15 @@ namespace FlatSquares.Core
         }
 
         /// <summary>
+        /// Initialize the node.
+        /// </summary>
+        public void Initialize()
+        {
+            Components.OfType<ILoad>().ForEach(component => component.Load());
+            Components.OfType<IInitialize>().ForEach(component => component.Initialize());
+        }
+
+        /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Core.Node"/> object.
         /// </summary>
         /// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="T:FlatSquares.Core.Node"/>. The
@@ -106,6 +114,7 @@ namespace FlatSquares.Core
         public void Dispose()
         {
             Components.ForEach(item => item.Dispose());
+            Components.Clear();
             Scene = null;
         }
     }
