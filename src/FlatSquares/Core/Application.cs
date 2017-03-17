@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FlatSquares.Common;
+using FlatSquares.Providers;
 
 namespace FlatSquares.Core
 {

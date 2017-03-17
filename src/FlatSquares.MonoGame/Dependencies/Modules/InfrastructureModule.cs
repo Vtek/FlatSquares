@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using FlatSquares.Providers;
 
 namespace FlatSquares.MonoGame.Dependencies.Modules
 {
@@ -13,7 +14,7 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
         /// <param name="builder">Builder.</param>
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<DependencyContainer>().As<IDependencyContainer>().SingleInstance();
+            builder.RegisterType<DependencyProvider>().As<IDependencyProvider>().SingleInstance();
             base.Load(builder);
         }
     }

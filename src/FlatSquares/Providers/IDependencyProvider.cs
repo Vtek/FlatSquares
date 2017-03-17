@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace FlatSquares
+namespace FlatSquares.Providers
 {
     /// <summary>
-    /// Define a dependency container
+    /// Dependency provider.
     /// </summary>
-    public interface IDependencyContainer : IDisposable
+    public interface IDependencyProvider : IDisposable
     {
         /// <summary>
         /// Gets an instances.

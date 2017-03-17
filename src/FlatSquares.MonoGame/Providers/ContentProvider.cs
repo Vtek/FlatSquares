@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using FlatSquares.Providers;
+using Microsoft.Xna.Framework.Content;
 
 namespace FlatSquares.MonoGame.Providers
 {

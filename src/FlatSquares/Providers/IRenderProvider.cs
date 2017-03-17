@@ -1,6 +1,6 @@
 ﻿using FlatSquares.Common;
 
-namespace FlatSquares
+namespace FlatSquares.Providers
 {
     /// <summary>
     /// Render provider.

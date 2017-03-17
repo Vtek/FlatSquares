@@ -1,11 +1,12 @@
 ﻿using Autofac;
+using FlatSquares.Providers;
 
 namespace FlatSquares.MonoGame.Dependencies
 {
     /// <summary>
     /// Dependency container.
     /// </summary>
-    class DependencyContainer : IDependencyContainer
+    class DependencyProvider : IDependencyProvider
     {
         /// <summary>
         /// Gets the lifetime scope.
@@ -17,7 +18,7 @@ namespace FlatSquares.MonoGame.Dependencies
         /// Initializes a new instance of the <see cref="T:FlatSquares.MonoGame.DependencyContainer"/> class.
         /// </summary>
         /// <param name="lifetimeScope">Lifetime scope.</param>
-        public DependencyContainer(ILifetimeScope lifetimeScope)
+        public DependencyProvider(ILifetimeScope lifetimeScope)
         {
             LifetimeScope = lifetimeScope;
         }

@@ -1,4 +1,6 @@
-﻿namespace FlatSquares.Core
+﻿using FlatSquares.Providers;
+
+namespace FlatSquares.Core
 {
     /// <summary>
     /// Scene factory.
@@ -6,10 +8,10 @@
     public class SceneFactory : ISceneFactory
     {
         /// <summary>
-        /// Gets or sets the dependency container.
+        /// Gets or sets the dependency provider.
         /// </summary>
-        /// <value>The dependency container.</value>
-        IDependencyContainer DependencyContainer { get; set; }
+        /// <value>The dependency provider.</value>
+        IDependencyProvider DependencyProvider { get; set; }
 
         /// <summary>
         /// Gets or sets the loading scene.
@@ -30,12 +32,12 @@
         public ISplash Splash { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:FlatSquares.SceneFactory"/> class.
+        /// Initializes a new instance of the <see cref="T:FlatSquares.Core.SceneFactory"/> class.
         /// </summary>
-        /// <param name="dependencyContainer">Dependency container.</param>
-        public SceneFactory(IDependencyContainer dependencyContainer)
+        /// <param name="dependencyProvider">Dependency provider.</param>
+        public SceneFactory(IDependencyProvider dependencyProvider)
         {
-            DependencyContainer = dependencyContainer;
+            DependencyProvider = dependencyProvider;
         }
 
         /// <summary>
@@ -45,7 +47,7 @@
         /// <typeparam name="TScene">Scene type to create.</typeparam>
         public TScene Create<TScene>() where TScene : IScene
             =>
-                DependencyContainer.GetInstance<TScene>();
+                DependencyProvider.GetInstance<TScene>();
 
         /// <summary>
         /// Sets the splash scene.
@@ -53,7 +55,7 @@
         /// <typeparam name="TScene">Splash scene type.</typeparam>
         public void SetSplash<TScene>() where TScene : ISplash
             =>
-                Splash = DependencyContainer.GetInstance<TScene>();
+                Splash = DependencyProvider.GetInstance<TScene>();
 
         /// <summary>
         /// Sets the loading scene. 
@@ -61,7 +63,7 @@
         /// <typeparam name="TScene">Loading scene type.</typeparam>
         public void SetLoading<TScene>() where TScene : IScene
             =>
-                Loading = DependencyContainer.GetInstance<TScene>();
+                Loading = DependencyProvider.GetInstance<TScene>();
 
         /// <summary>
         /// Sets the root scene.
@@ -69,6 +71,6 @@
         /// <typeparam name="TScene">Root scene type.</typeparam>
         public void SetRoot<TScene>() where TScene : IScene
             =>
-                Root = DependencyContainer.GetInstance<TScene>();
+                Root = DependencyProvider.GetInstance<TScene>();
     }
 }

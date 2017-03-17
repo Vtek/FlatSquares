@@ -1,4 +1,4 @@
-﻿namespace FlatSquares
+﻿namespace FlatSquares.Providers
 {
     /// <summary>
     /// Content provider.
