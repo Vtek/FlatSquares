@@ -34,7 +34,6 @@
     <Compile Include="Providers\RenderProvider.cs" />
     <Compile Include="Extensions\ApplicationExtension.cs" />
     <Compile Include="Dependencies\Modules\CoreModule.cs" />
-    <Compile Include="Dependencies\Modules\InfrastructureModule.cs" />
     <Compile Include="Dependencies\Modules\ProviderModule.cs" />
   </ItemGroup>
   <ItemGroup>

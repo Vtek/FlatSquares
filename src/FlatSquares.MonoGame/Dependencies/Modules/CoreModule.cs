@@ -19,34 +19,9 @@ namespace FlatSquares.MonoGame.Dependencies.Modules
             builder.RegisterType<SceneFactory>().As<ISceneFactory>().SingleInstance();
             builder.RegisterType<Navigation>().As<INavigation>().SingleInstance();
 
-            foreach (var scene in Scenes)
-            {
-                builder.RegisterTypes(scene)
-                       .OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
-            }
+            Scenes.ForEach(scene => builder.RegisterTypes(scene).OnActivated(e => e.Context.InjectUnsetProperties(e.Instance)));
 
-            /*
-            foreach (var assembly in GetAssemblies())//TODO need a huge refactoring =(
-            {
-                if (!assembly.FullName.StartsWith("Xamarin"))
-                {
-                    builder
-                        .RegisterTypes(assembly.DefinedTypes
-                                      .Where(type => type.ImplementedInterfaces.Any(i => i.Name == typeof(IScene).Name))
-                                      .Select(type => type.AsType())
-                                      .ToArray())
-                        .OnActivated(e => e.Context.InjectUnsetProperties(e.Instance));
-                }
-            }*/
             base.Load(builder);
-        }
-
-        private IEnumerable<Assembly> GetAssemblies()
-        {
-            //Ugly code but there is no other way to retreive assemblies meta information
-            var appDomain = typeof(string).GetTypeInfo().Assembly.GetType("System.AppDomain").GetRuntimeProperty("CurrentDomain").GetMethod.Invoke(null, new object[] { });
-            var getAssembliesMethod = appDomain.GetType().GetRuntimeMethod("GetAssemblies", new System.Type[] { });
-            return getAssembliesMethod.Invoke(appDomain, new object[] { }) as Assembly[];
         }
     }
 }
