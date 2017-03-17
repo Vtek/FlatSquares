@@ -6,7 +6,7 @@ namespace FlatSquares
     /// <summary>
     /// Define a FlatSquares application.
     /// </summary>
-    public interface IApplication : IDisposable, IDraw, IUpdate
+    public interface IApplication : IDisposable
     {
         /// <summary>
         /// Occurs when started.
@@ -36,5 +36,16 @@ namespace FlatSquares
         /// <returns>The apply.</returns>
         /// <param name="configuration">Configuration.</param>
         void Apply(Configuration configuration);
+
+        /// <summary>
+        /// Perform a draw
+        /// </summary>
+        void Draw();
+
+        /// <summary>
+        /// Perform an update.
+        /// </summary>
+        /// <param name="elapsed">Elapsed time since last update.</param>
+        void Update(float elapsed);
     }
 }

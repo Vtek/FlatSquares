@@ -24,7 +24,7 @@ namespace FlatSquares.Core
         /// Gets or sets the components.
         /// </summary>
         /// <value>The components.</value>
-        public ICollection<IComponent> Components { get; } = new List<IComponent>();
+        ICollection<IComponent> Components { get; } = new List<IComponent>();
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:FlatSquares.Core.Node"/> is enabled.

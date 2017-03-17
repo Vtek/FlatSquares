@@ -59,6 +59,7 @@
     <Compile Include="IRenderProvider.cs" />
     <Compile Include="Common\Configuration.cs" />
     <Compile Include="Core\Launcher.cs" />
+    <Compile Include="IActive.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

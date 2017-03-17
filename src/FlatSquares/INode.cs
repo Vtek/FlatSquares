@@ -32,13 +32,6 @@ namespace FlatSquares
         IScene Scene { get; }
 
         /// <summary>
-        /// Gets or sets the components.
-        /// </summary>
-        /// <value>The components.</value>
-        [Obsolete]
-        ICollection<IComponent> Components { get; } //TODO component collection can't be public
-
-        /// <summary>
         /// Gets or sets the scale.
         /// </summary>
         /// <value>The scale.</value>

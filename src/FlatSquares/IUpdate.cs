@@ -3,7 +3,7 @@
     /// <summary>
     /// Define update behavior
     /// </summary>
-    public interface IUpdate
+    public interface IUpdate : IActive
     {
         /// <summary>
         /// Perform an update.

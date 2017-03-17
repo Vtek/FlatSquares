@@ -5,7 +5,7 @@ namespace FlatSquares
     /// <summary>
     /// Define an object to render.
     /// </summary>
-    public interface IRender
+    public interface IRender : IActive
     {
         /// <summary>
         /// Gets the render object.

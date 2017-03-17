@@ -32,34 +32,30 @@ namespace FlatSquares.Core
         /// </summary>
         /// <value>The nodes.</value>
         ICollection<INode> Nodes { get; set; } = new List<INode>();
+ 
+        /// <summary>
+        /// Gets or sets the renderables.
+        /// </summary>
+        /// <value>The renderables.</value>
+        ICollection<IRender> _renderables { get; set; } = new List<IRender>();
 
-        public IEnumerable<IRender> Renderables
-        {
-            get
-            {
-                //TODO will need optimisation
-                var renderables = new List<IRender>();
-                foreach (var node in Nodes)
-                {
-                    renderables.AddRange(node.Components.OfType<IRender>().ToList());
-                }
-                return renderables;
-            }
-        }
+        /// <summary>
+        /// Gets the renderables.
+        /// </summary>
+        /// <value>The renderables.</value>
+        public IEnumerable<IRender> Renderables => _renderables.Where(r => r.Active).AsEnumerable();
 
-        public IEnumerable<IUpdate> Updatables
-        {
-            get
-            {
-                //TODO will need optimisation
-                var updatables = new List<IUpdate>();
-                foreach (var node in Nodes)
-                {
-                    updatables.AddRange(node.Components.OfType<IUpdate>().ToList());
-                }
-                return updatables;
-            }
-        }
+        /// <summary>
+        /// Gets or sets the updatables.
+        /// </summary>
+        /// <value>The updatables.</value>
+        ICollection<IUpdate> _updatables { get; set; } = new List<IUpdate>();
+
+        /// <summary>
+        /// Gets the updatables.
+        /// </summary>
+        /// <value>The updatables.</value>
+        public IEnumerable<IUpdate> Updatables => _updatables.Where(u => u.Active).AsEnumerable();
 
         /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Scene"/> object.
@@ -92,7 +88,10 @@ namespace FlatSquares.Core
                 throw new ArgumentException($"Scene {Key} already contains {key}");
 
             var node = new Node { Key = key, Scene = this };
+            node.ComponentAdded += NodeComponentAdded;
+            node.ComponentRemoved += NodeComponentRemoved;
             Nodes.Add(node);
+
             return node;
         }
 
@@ -110,8 +109,20 @@ namespace FlatSquares.Core
         public void RemoveNode(string key)
         {
             var node = GetNode(key);
-            Nodes.Remove(node);
+            node.ComponentAdded -= NodeComponentAdded;
+            node.ComponentRemoved -= NodeComponentRemoved;
             node.Dispose();
+            Nodes.Remove(node);
+        }
+
+        void NodeComponentAdded(object sender, IComponent e)
+        {
+
+        }
+
+        void NodeComponentRemoved(object sender, IComponent e)
+        {
+
         }
     }
 }
