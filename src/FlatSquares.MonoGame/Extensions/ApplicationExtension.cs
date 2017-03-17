@@ -48,7 +48,6 @@ namespace FlatSquares.Core
         public static IApplication UseMonoGame(this IApplication application, Action<Configuration> configure, Action<Game> action = null)
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterModule<InfrastructureModule>();
             containerBuilder.RegisterModule<ProviderModule>();
             containerBuilder.RegisterModule<CoreModule>();
             var container = containerBuilder.Build();
