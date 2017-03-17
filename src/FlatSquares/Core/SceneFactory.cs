@@ -46,8 +46,12 @@ namespace FlatSquares.Core
         /// <returns>Scene.</returns>
         /// <typeparam name="TScene">Scene type to create.</typeparam>
         public TScene Create<TScene>() where TScene : IScene
-            =>
-                DependencyProvider.GetInstance<TScene>();
+        {
+            var instance = DependencyProvider.GetInstance<TScene>();
+            DependencyProvider.Inject(instance);
+            return instance;
+        }
+                
 
         /// <summary>
         /// Sets the splash scene.
@@ -55,7 +59,7 @@ namespace FlatSquares.Core
         /// <typeparam name="TScene">Splash scene type.</typeparam>
         public void SetSplash<TScene>() where TScene : ISplash
             =>
-                Splash = DependencyProvider.GetInstance<TScene>();
+                Splash = Create<TScene>();
 
         /// <summary>
         /// Sets the loading scene. 
@@ -63,7 +67,7 @@ namespace FlatSquares.Core
         /// <typeparam name="TScene">Loading scene type.</typeparam>
         public void SetLoading<TScene>() where TScene : IScene
             =>
-                Loading = DependencyProvider.GetInstance<TScene>();
+                Loading = Create<TScene>();
 
         /// <summary>
         /// Sets the root scene.
@@ -71,6 +75,6 @@ namespace FlatSquares.Core
         /// <typeparam name="TScene">Root scene type.</typeparam>
         public void SetRoot<TScene>() where TScene : IScene
             =>
-                Root = DependencyProvider.GetInstance<TScene>();
+                Root = Create<TScene>();
     }
 }

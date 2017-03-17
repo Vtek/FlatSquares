@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using FlatSquares.Providers;
 
 namespace FlatSquares.MonoGame.Dependencies
@@ -39,5 +40,12 @@ namespace FlatSquares.MonoGame.Dependencies
         /// </summary>
         /// <returns>The instance.</returns>
         public TType GetInstance<TType>() => LifetimeScope.Resolve<TType>();
+
+        /// <summary>
+        /// Inject dependencies in the specified obj.
+        /// </summary>
+        /// <returns>The inject.</returns>
+        /// <param name="obj">Object.</param>
+        public void Inject(object obj) => LifetimeScope.InjectProperties(obj);
     }
 }

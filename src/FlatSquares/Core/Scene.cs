@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FlatSquares.Providers;
 
 namespace FlatSquares.Core
 {
@@ -56,6 +57,12 @@ namespace FlatSquares.Core
         /// </summary>
         /// <value>The updatables.</value>
         public IEnumerable<IUpdate> Updatables => _updatables.Where(u => u.Active).AsEnumerable();
+
+        /// <summary>
+        /// Gets or sets the dependency provider.
+        /// </summary>
+        /// <value>The dependency provider.</value>
+        public IDependencyProvider DependencyProvider { private get; set; }
 
         /// <summary>
         /// Releases all resource used by the <see cref="T:FlatSquares.Scene"/> object.
@@ -115,14 +122,38 @@ namespace FlatSquares.Core
             Nodes.Remove(node);
         }
 
-        void NodeComponentAdded(object sender, IComponent e)
+        /// <summary>
+        /// Handle  node component added event.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="component">Component.</param>
+        void NodeComponentAdded(object sender, IComponent component)
         {
+            DependencyProvider.Inject(component);
 
+            var render = component as IRender;
+            if (render != null)
+                _renderables.Add(render);
+
+            var update = component as IUpdate;
+            if (update != null)
+                _updatables.Add(update);
         }
 
-        void NodeComponentRemoved(object sender, IComponent e)
+        /// <summary>
+        /// Handle  node component removed event.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="component">Component.</param>
+        void NodeComponentRemoved(object sender, IComponent component)
         {
+            var render = component as IRender;
+            if (render != null)
+                _renderables.Remove(render);
 
+            var update = component as IUpdate;
+            if (update != null)
+                _updatables.Remove(update);
         }
     }
 }

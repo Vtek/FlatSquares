@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dependencies\DependencyContainer.cs" />
+    <Compile Include="Dependencies\DependencyProvider.cs" />
     <Compile Include="Providers\ContentProvider.cs" />
     <Compile Include="Providers\RenderProvider.cs" />
     <Compile Include="Extensions\ApplicationExtension.cs" />

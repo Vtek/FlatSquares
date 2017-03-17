@@ -1,10 +1,13 @@
 ﻿using FlatSquares.Common;
 using FlatSquares.Core;
+using FlatSquares.Providers;
 
 namespace FlatSquares.Components
 {
     public class SpriteComponent : Component, IRender, ILoad
     {
+        public IContentProvider ContentProvider { get; set; }
+
         object _internalResource;
 
         public Vector Origin { get; set; } = Vector.Zero;
@@ -19,6 +22,6 @@ namespace FlatSquares.Components
 
         public T GetRenderObject<T>() => (T)_internalResource;
 
-        public void Load() => _internalResource = null; //TODO Providers need to be inject for easier developement of components
+        public void Load() => _internalResource = ContentProvider.Load(TexturePath);
     }
 }
