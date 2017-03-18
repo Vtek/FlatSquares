@@ -71,7 +71,16 @@ namespace FlatSquares.Core
         /// <see cref="Dispose"/> method leaves the <see cref="T:FlatSquares.Scene"/> in an unusable state. After calling
         /// <see cref="Dispose"/>, you must release all references to the <see cref="T:FlatSquares.Scene"/> so the garbage
         /// collector can reclaim the memory that the <see cref="T:FlatSquares.Scene"/> was occupying.</remarks>
-        public void Dispose() => Nodes.ForEach(node => node.Dispose());
+        public void Dispose()
+        {
+            Nodes.ForEach(node =>
+            {
+                node.ComponentAdded -= NodeComponentAdded;
+                node.ComponentRemoved -= NodeComponentRemoved;
+                node.Dispose();
+            });
+            Nodes.Clear();
+        } 
 
         /// <summary>
         /// Create the scene with specified parameters.
