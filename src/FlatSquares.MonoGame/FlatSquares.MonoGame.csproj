@@ -36,6 +36,8 @@
     <Compile Include="Modules\CoreModule.cs" />
     <Compile Include="Modules\ProviderModule.cs" />
     <Compile Include="Extensions\ColorExtension.cs" />
+    <Compile Include="Providers\TouchProvider.cs" />
+    <Compile Include="Extensions\VectorExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlatSquares\FlatSquares.csproj">

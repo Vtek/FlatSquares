@@ -5,7 +5,7 @@ namespace FlatSquares.Providers
     /// <summary>
     /// Define a touch provider.
     /// </summary>
-    public interface ITouchProvider : IEnabled
+    public interface ITouchProvider : IActive
     {
         /// <summary>
         /// True if passing finger index is down.
