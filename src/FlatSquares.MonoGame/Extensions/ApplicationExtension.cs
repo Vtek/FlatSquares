@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Autofac;
 using FlatSquares.Common;
-using FlatSquares.MonoGame.Dependencies.Modules;
+using FlatSquares.MonoGame.Modules;
 using FlatSquares.MonoGame.Providers;
 using FlatSquares.Providers;
 using Microsoft.Xna.Framework;

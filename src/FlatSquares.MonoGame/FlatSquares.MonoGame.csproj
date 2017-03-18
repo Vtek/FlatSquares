@@ -32,9 +32,9 @@
     <Compile Include="Providers\ContentProvider.cs" />
     <Compile Include="Providers\RenderProvider.cs" />
     <Compile Include="Extensions\ApplicationExtension.cs" />
-    <Compile Include="Dependencies\Modules\CoreModule.cs" />
-    <Compile Include="Dependencies\Modules\ProviderModule.cs" />
     <Compile Include="Providers\DependencyProvider.cs" />
+    <Compile Include="Modules\CoreModule.cs" />
+    <Compile Include="Modules\ProviderModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlatSquares\FlatSquares.csproj">
@@ -57,10 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dependencies\" />
     <Folder Include="Providers\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Dependencies\Modules\" />
+    <Folder Include="Modules\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

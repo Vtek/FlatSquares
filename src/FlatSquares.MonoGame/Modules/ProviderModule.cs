@@ -3,7 +3,7 @@ using FlatSquares.Core;
 using FlatSquares.MonoGame.Providers;
 using FlatSquares.Providers;
 
-namespace FlatSquares.MonoGame.Dependencies.Modules
+namespace FlatSquares.MonoGame.Modules
 {
     /// <summary>
     /// Provider module.

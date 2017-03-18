@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Autofac;
 using FlatSquares.Core;
 
-namespace FlatSquares.MonoGame.Dependencies.Modules
+namespace FlatSquares.MonoGame.Modules
 {
     class CoreModule : Autofac.Module
     {
