@@ -8,11 +8,10 @@ namespace FlatSquares
     public interface IRender : IActive
     {
         /// <summary>
-        /// Gets the render object.
+        /// Gets the texture.
         /// </summary>
-        /// <returns>The render object.</returns>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
-        T GetRenderObject<T>();
+        /// <value>The texture.</value>
+        object Texture { get; }
 
         /// <summary>
         /// Gets the position.

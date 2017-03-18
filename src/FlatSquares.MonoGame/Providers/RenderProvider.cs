@@ -48,7 +48,7 @@ namespace FlatSquares.MonoGame.Providers
             _origin.X = render.Origin.X;
             _origin.Y = render.Origin.Y;
 
-            SpriteBatch.Draw(render.GetRenderObject<Texture2D>(), _position, _source, _drawColor, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
+            SpriteBatch.Draw((Texture2D)render.Texture, _position, _source, _drawColor, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
         }
 
         public void End()

@@ -8,20 +8,14 @@ namespace FlatSquares.Components
     {
         public IContentProvider ContentProvider { get; set; }
 
-        object _internalResource;
-
         public Vector Origin { get; set; } = Vector.Zero;
-
         public Vector Position => Node.Position;
         public float Rotation => Node.Rotation;
         public float Scale => Node.Scale;
-
-
         public Rectangle Source { get; set; }
         public string TexturePath { get; set; }
+        public object Texture { get; private set; }
 
-        public T GetRenderObject<T>() => (T)_internalResource;
-
-        public void Load() => _internalResource = ContentProvider.Load(TexturePath);
+        public void Load() => Texture = ContentProvider.Load(TexturePath);
     }
 }
