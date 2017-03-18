@@ -5,9 +5,16 @@ using FlatSquares.Core;
 
 namespace FlatSquares.MonoGame.Modules
 {
-    class CoreModule : Autofac.Module
+    /// <summary>
+    /// Core module.
+    /// </summary>
+    class CoreModule : Module
     {
-        internal static IList<Type> Scenes { get; set; } = new List<Type>();
+        /// <summary>
+        /// Gets or sets the scenes.
+        /// </summary>
+        /// <value>The scenes.</value>
+        internal static IList<Type> Scenes { get; private set; } = new List<Type>();
 
         /// <summary>
         /// Load the module.
