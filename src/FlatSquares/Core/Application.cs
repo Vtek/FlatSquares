@@ -40,12 +40,6 @@ namespace FlatSquares.Core
         public IRenderProvider RenderProvider { get; set; }
 
         /// <summary>
-        /// Gets or sets the color of the clear.
-        /// </summary>
-        /// <value>The color of the clear.</value>
-        Color ClearColor { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="T:FlatSquares.Core.Application"/> class.
         /// </summary>
         internal Application() { }
@@ -69,7 +63,7 @@ namespace FlatSquares.Core
         /// <param name="configuration">Configuration.</param>
         public void Apply(Configuration configuration)
         {
-            ClearColor = configuration.ClearColor;
+            RenderProvider.Clear = configuration.ClearColor;
         }
 
         /// <summary>
@@ -97,7 +91,7 @@ namespace FlatSquares.Core
         /// </summary>
         public void Draw()
         {
-            RenderProvider.Begin(ClearColor);
+            RenderProvider.Begin();
             Navigation.Current.Renderables.ForEach(RenderProvider.Draw);
             RenderProvider.End();
         }

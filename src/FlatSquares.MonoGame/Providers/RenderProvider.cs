@@ -1,18 +1,48 @@
-﻿using FlatSquares.Providers;
+﻿using FlatSquares.MonoGame.Extensions;
+using FlatSquares.Providers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlatSquares.MonoGame.Providers
 {
+    /// <summary>
+    /// Render provider.
+    /// </summary>
     class RenderProvider : IRenderProvider
     {
+        /// <summary>
+        /// Gets or sets the sprite batch.
+        /// </summary>
+        /// <value>The sprite batch.</value>
         public SpriteBatch SpriteBatch { get; set; }
+
+        /// <summary>
+        /// Gets or sets the graphics device manager.
+        /// </summary>
+        /// <value>The graphics device manager.</value>
         public GraphicsDeviceManager GraphicsDeviceManager { get; set; }
 
-        Color _clearColor = new Color();
-        bool _clearColorDefined;
+        /// <summary>
+        /// The clear.
+        /// </summary>
+        Color _clear = new Color();
 
-        Color _drawColor = Color.White;
+        /// <summary>
+        /// Gets or sets the clear color.
+        /// </summary>
+        /// <value>The clear.</value>
+        public Common.Color Clear
+        {
+            get
+            {
+                return _clear.ToFlatSquareColor();
+            }
+            set
+            {
+                _clear = value.ToXnaColor();
+
+            }
+        }
         Vector2 _position = new Vector2();
         Vector2 _origin = new Vector2();
         Rectangle _source = new Rectangle();
@@ -20,40 +50,68 @@ namespace FlatSquares.MonoGame.Providers
         public int HeightRequired { get; set; }
         public int WidthRequired { get; set; }
 
-        public void Begin(Common.Color color)
+        /// <summary>
+        /// Begin render operation.
+        /// </summary>
+        public void Begin()
         {
-            if (_clearColorDefined)
-            {
-                _clearColor.A = color.A;
-                _clearColor.B = color.B;
-                _clearColor.G = color.G;
-                _clearColor.R = color.R;
-                _clearColorDefined = true;
-            }
-
-            GraphicsDeviceManager.GraphicsDevice.Clear(_clearColor);
+            GraphicsDeviceManager.GraphicsDevice.Clear(_clear);
             SpriteBatch.Begin();
         }
 
+        /// <summary>
+        /// Draw operation.
+        /// </summary>
+        /// <returns>The draw.</returns>
+        /// <param name="render">Render.</param>
         public void Draw(IRender render)
         {
-            _position.X = render.Position.X;
-            _position.Y = render.Position.Y;
-
-            _source.X = (int)render.Source.X;
-            _source.Y = (int)render.Source.Y;
-            _source.Width = (int)render.Source.Width;
-            _source.Height = (int)render.Source.Height;
-
-            _origin.X = render.Origin.X;
-            _origin.Y = render.Origin.Y;
-
-            SpriteBatch.Draw((Texture2D)render.Texture, _position, _source, _drawColor, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
+            SetPosition(render.Position.X, render.Position.Y);
+            SetOrigin(render.Origin.X, render.Origin.Y);
+            SetSource(render.Source.X, render.Source.Y, render.Source.Width, render.Source.Height);
+            SpriteBatch.Draw((Texture2D)render.Texture, _position, _source, Color.White, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
         }
 
-        public void End()
+        /// <summary>
+        /// End render operation.
+        /// </summary>
+        public void End() => SpriteBatch.End();
+
+        /// <summary>
+        /// Sets the position.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        void SetPosition(float x, float y)
         {
-            SpriteBatch.End();
+            _position.X = x;
+            _position.Y = y;
+        }
+
+        /// <summary>
+        /// Sets the origin.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        void SetOrigin(float x, float y)
+        {
+            _origin.X = x;
+            _origin.Y = y;
+        }
+
+        /// <summary>
+        /// Sets the source.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <param name="width">Width.</param>
+        /// <param name="height">Height.</param>
+        void SetSource(float x, float y, float width, float height)
+        {
+            _source.X = (int)x;
+            _source.Y = (int)y;
+            _source.Width = (int)width;
+            _source.Height = (int)height;
         }
     }
 }

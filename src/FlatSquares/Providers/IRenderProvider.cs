@@ -20,20 +20,25 @@ namespace FlatSquares.Providers
         int HeightRequired { get; set; }
 
         /// <summary>
-        /// Begin render process.
+        /// Gets or sets the clear color.
         /// </summary>
-        /// <param name="color">Clear color.</param>
-        void Begin(Color color);
+        /// <value>The clear color.</value>
+        Color Clear { get; set; }
 
         /// <summary>
-        /// Draw the specified render.
+        /// Begin render operation.
+        /// </summary>
+        void Begin();
+
+        /// <summary>
+        /// Draw operation.
         /// </summary>
         /// <returns>The draw.</returns>
         /// <param name="render">Render.</param>
         void Draw(IRender render);
 
         /// <summary>
-        /// End render process.
+        /// End render operation.
         /// </summary>
         void End();
     }
