@@ -60,6 +60,7 @@
     <Compile Include="Providers\IDependencyProvider.cs" />
     <Compile Include="Providers\IRenderProvider.cs" />
     <Compile Include="Providers\IContentProvider.cs" />
+    <Compile Include="Providers\ITouchProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
