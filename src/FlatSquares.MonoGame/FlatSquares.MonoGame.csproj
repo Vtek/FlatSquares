@@ -29,12 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dependencies\DependencyProvider.cs" />
     <Compile Include="Providers\ContentProvider.cs" />
     <Compile Include="Providers\RenderProvider.cs" />
     <Compile Include="Extensions\ApplicationExtension.cs" />
     <Compile Include="Dependencies\Modules\CoreModule.cs" />
     <Compile Include="Dependencies\Modules\ProviderModule.cs" />
+    <Compile Include="Providers\DependencyProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlatSquares\FlatSquares.csproj">

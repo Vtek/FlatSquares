@@ -1,8 +1,7 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using FlatSquares.Providers;
 
-namespace FlatSquares.MonoGame.Dependencies
+namespace FlatSquares.MonoGame.Providers
 {
     /// <summary>
     /// Dependency container.
