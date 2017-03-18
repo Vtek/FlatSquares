@@ -32,42 +32,78 @@ namespace FlatSquares.MonoGame.Providers
         /// </summary>
         /// <returns>True if passing finger index is down.</returns>
         /// <param name="index">Finger index.</param>
-        public bool Down(int index) => _current[index].State == TouchLocationState.Pressed;
+        public bool Down(int index)
+        {
+            if(_current.Count > index)
+                return _current[index].State == TouchLocationState.Pressed;
+
+            return false;
+        }
 
         /// <summary>
         /// True if passing finger index is up.
         /// </summary>
         /// <returns>True if passing finger index is up.</returns>
         /// <param name="index">Finger index.</param>
-        public bool Up(int index) => _current[index].State == TouchLocationState.Released;
+        public bool Up(int index)
+        {
+            if (_current.Count > index)
+                return _current[index].State == TouchLocationState.Released;
+
+            return false;
+        }
 
         /// <summary>
         /// True if passing finger index was pressed.
         /// </summary>
         /// <returns>True if passing finger index was pressed.</returns>
         /// <param name="index">Finger index.</param>
-        public bool Pressed(int index) => _current[index].State == TouchLocationState.Pressed && _last[index].State == TouchLocationState.Released;
+        public bool Pressed(int index)
+        {
+            if (_current.Count > index && _last.Count > index)
+                return _current[index].State == TouchLocationState.Pressed && _last[index].State == TouchLocationState.Released;
+
+            return false;
+        }
 
         /// <summary>
         /// True if passing finger index was released.
         /// </summary>
         /// <returns>True if passing finger index was released.</returns>
         /// <param name="index">Finger index.</param>
-        public bool Released(int index) => _current[index].State == TouchLocationState.Released && _last[index].State == TouchLocationState.Pressed;
+        public bool Released(int index)
+        {
+            if (_current.Count > index && _last.Count > index)
+                return _current[index].State == TouchLocationState.Released && _last[index].State == TouchLocationState.Pressed;
+
+            return false;
+        }
 
         /// <summary>
         /// Gets the position.
         /// </summary>
         /// <returns>The position.</returns>
         /// <param name="index">Finger index.</param>
-        public Vector GetPosition(int index) => _current[index].Position.ToFlatSquareVector();
+        public Vector? GetPosition(int index)
+        {
+            if (_current.Count > index)
+                return _current[index].Position.ToFlatSquareVector();
+
+            return null;
+        }
 
         /// <summary>
         /// Gets the last position.
         /// </summary>
         /// <returns>The last position.</returns>
         /// <param name="index">FInger index.</param>
-        public Vector GetLastPosition(int index) => _last[index].Position.ToFlatSquareVector();
+        public Vector? GetLastPosition(int index) 
+        {
+            if (_current.Count > index)
+                return _last[index].Position.ToFlatSquareVector();
+
+            return null;
+        }
 
         /// <summary>
         /// Refresh touches states.

@@ -40,14 +40,14 @@ namespace FlatSquares.Providers
         /// </summary>
         /// <returns>The position.</returns>
         /// <param name="index">Finger index.</param>
-        Vector GetPosition(int index);
+        Vector? GetPosition(int index);
 
         /// <summary>
         /// Gets the last position.
         /// </summary>
         /// <returns>The last position.</returns>
         /// <param name="index">FInger index.</param>
-        Vector GetLastPosition(int index);
+        Vector? GetLastPosition(int index);
 
         /// <summary>
         /// Refresh touches states.
