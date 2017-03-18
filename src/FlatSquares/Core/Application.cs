@@ -40,6 +40,12 @@ namespace FlatSquares.Core
         public IRenderProvider RenderProvider { get; set; }
 
         /// <summary>
+        /// Gets or sets the touch provider.
+        /// </summary>
+        /// <value>The touch provider.</value>
+        public ITouchProvider TouchProvider { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:FlatSquares.Core.Application"/> class.
         /// </summary>
         internal Application() { }
@@ -84,7 +90,11 @@ namespace FlatSquares.Core
         /// Perform an update.
         /// </summary>
         /// <param name="elapsed">Elapsed time since last update.</param>
-        public void Update(float elapsed) => Navigation.Current.Updatables.ForEach(component => component.Update(elapsed));
+        public void Update(float elapsed) 
+        {
+            TouchProvider.Refresh();
+            Navigation.Current.Updatables.ForEach(component => component.Update(elapsed));
+        }
 
         /// <summary>
         /// Perform a draw
