@@ -92,7 +92,9 @@ namespace FlatSquares.Core
         /// <param name="elapsed">Elapsed time since last update.</param>
         public void Update(float elapsed) 
         {
-            TouchProvider.Refresh();
+            if(TouchProvider.Active)
+                TouchProvider.Refresh();
+            
             Navigation.Current.Updatables.ForEach(component => component.Update(elapsed));
         }
 
