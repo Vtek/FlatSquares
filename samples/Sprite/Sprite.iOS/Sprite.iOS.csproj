@@ -109,7 +109,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="Content\Sprites\spinner.png" />
     <None Include="packages.config" />
     <None Include="Content\Sprites\background.png" />
   </ItemGroup>
@@ -125,10 +124,10 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Sprites\spinner.xnb">
+    <Content Include="Content\Sprites\background.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\background.xnb">
+    <Content Include="Content\Sprites\star.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -149,6 +148,9 @@
       <Project>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</Project>
       <Name>Sprite</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Content\Sprites\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

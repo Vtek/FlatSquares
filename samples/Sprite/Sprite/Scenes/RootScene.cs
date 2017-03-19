@@ -28,15 +28,17 @@ namespace Sprite
                 for (var y = 0; y < 1; y++)
                 {
                     var node = CreateNode($"Node{i}");
+                    node.Scale = 0.5f;
+
                     node.AddComponent(new SpinnerComponent
                     {
                         Speed = i * y * 0.1f + 0.1f
                     });
                     node.AddComponent(new SpriteComponent
                     {
-                        Source = new Rectangle(0f, 0f, 50f, 50f),
-                        TexturePath = "Sprites/spinner",
-                        Origin = new Vector(25f, 25f)
+                        Source = new Rectangle(0f, 0f, 480f, 480f),
+                        TexturePath = "Sprites/star",
+                        Origin = new Vector(240f, 240f)
                     });
                 }
             }
