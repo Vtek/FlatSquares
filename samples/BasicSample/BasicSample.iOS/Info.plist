@@ -11,15 +11,17 @@
 	<key>CFBundleIdentifier</key>
 	<string>project.MonoGame.BasicSample.iOS</string>
 	<key>MinimumOSVersion</key>
-	<string>7.0</string>
+	<string>8.0</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>BasicSample.iOS</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>

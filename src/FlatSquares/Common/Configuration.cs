@@ -6,38 +6,21 @@
     public class Configuration
     {
         /// <summary>
-        /// Gets the color of the clear.
+        /// Gets or sets the color of the clear.
         /// </summary>
         /// <value>The color of the clear.</value>
-        internal Color ClearColor { get; private set; }
+        public Color ClearColor { get; set; }
 
         /// <summary>
-        /// Gets the width of the virtual.
+        /// Gets or sets the virtual width.
         /// </summary>
-        /// <value>The width of the virtual.</value>
-        internal int VirtualWidth { get; private set; }
+        /// <value>The virtual width.</value>
+        public float VirtualWidth { get; set; }
 
         /// <summary>
-        /// Gets the height of the virtual.
+        /// Gets or sets the virtual height.
         /// </summary>
-        /// <value>The height of the virtual.</value>
-        internal int VirtualHeight { get; private set; }
-
-        /// <summary>
-        /// Sets the clear color.
-        /// </summary>
-        /// <param name="color">Color.</param>
-        public void SetClearColor(Color color) => ClearColor = color;
-
-        /// <summary>
-        /// Sets the virtual resolution.
-        /// </summary>
-        /// <param name="width">Width.</param>
-        /// <param name="height">Height.</param>
-        public void SetVirtualResolution(int width, int height)
-        {
-            VirtualWidth = width;
-            VirtualHeight = height;
-        }
+        /// <value>The virtual height.</value>
+        public float VirtualHeight { get; set; }
     }
 }

@@ -37,8 +37,9 @@ namespace BasicSample.DesktopGL
 
         static void SetConfiguration(Configuration configuration)
         {
-            configuration.SetClearColor(FlatSquares.Common.Color.Black);
-            configuration.SetVirtualResolution(1280, 720);
+            configuration.ClearColor = FlatSquares.Common.Color.Black;
+            configuration.VirtualWidth = 854;
+            configuration.VirtualHeight = 480;
         }
 
         static void SetupMonoGame(Game game)
