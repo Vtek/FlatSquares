@@ -3,7 +3,7 @@ using FlatSquares.Common;
 using FlatSquares.Core;
 using FlatSquares.Providers;
 
-namespace BasicSample
+namespace Sprite
 {
     public class SpinnerComponent : Component, IUpdate
     {

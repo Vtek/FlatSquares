@@ -6,8 +6,8 @@
     <ProjectGuid>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>BasicSample</RootNamespace>
-    <AssemblyName>BasicSample</AssemblyName>
+    <RootNamespace>Sprite</RootNamespace>
+    <AssemblyName>Sprite</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
   </PropertyGroup>

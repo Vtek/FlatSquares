@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{476FAAED-5048-4C76-9093-516761CE453A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BasicSample.DesktopGL</RootNamespace>
-    <AssemblyName>BasicSample.DesktopGL</AssemblyName>
+    <RootNamespace>Sprite.DesktopGL</RootNamespace>
+    <AssemblyName>Sprite.DesktopGL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
   </PropertyGroup>
@@ -42,6 +42,8 @@
     <None Include="Icon.png" />
     <None Include="Content\Sprites\spinner.png" />
     <None Include="Content\Sprites\spinner.xnb" />
+    <None Include="Content\Sprites\background.png" />
+    <None Include="Content\Sprites\background.xnb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico">
@@ -90,10 +92,6 @@
     <Folder Include="Content\Sprites\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BasicSample\BasicSample.csproj">
-      <Project>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</Project>
-      <Name>BasicSample</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\src\FlatSquares\FlatSquares.csproj">
       <Project>{902EB1C0-6F9B-4FFC-902C-6551FE3847B6}</Project>
       <Name>FlatSquares</Name>
@@ -105,6 +103,10 @@
     <ProjectReference Include="..\..\..\src\FlatSquares.MonoGame\FlatSquares.MonoGame.csproj">
       <Project>{4D05CD43-C14D-403B-AC6C-1A7B53B63AD6}</Project>
       <Name>FlatSquares.MonoGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sprite\Sprite.csproj">
+      <Project>{29BEAD18-CCB5-4069-B8DA-B5C34C99169B}</Project>
+      <Name>Sprite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

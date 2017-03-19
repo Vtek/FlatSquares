@@ -64,8 +64,13 @@ namespace FlatSquares.Core
             var configuration = new Configuration();
             configure(configuration);
 
-            application.Apply(configuration);
+            internalGame.TransformMatrix = new TransformMatrix
+            {
+                VirtualWidth = configuration.VirtualWidth,
+                VirtualHeight = configuration.VirtualHeight
+            };
 
+            application.Apply(configuration);
             return application;
         }
     }
@@ -94,7 +99,11 @@ namespace FlatSquares.Core
             }
         }
 
-
+        /// <summary>
+        /// Gets or sets the transform matrix.
+        /// </summary>
+        /// <value>The transform matrix.</value>
+        public TransformMatrix TransformMatrix { get; set; }
 
         /// <summary>
         /// Gets or sets the render provider.
@@ -109,10 +118,16 @@ namespace FlatSquares.Core
         public IContentProvider ContentProvider { get; set; }
 
         /// <summary>
+        /// Gets or sets the touch provider.
+        /// </summary>
+        /// <value>The touch provider.</value>
+        public ITouchProvider TouchProvider { get; set; }
+
+        /// <summary>
         /// Gets or sets the graphics device manager.
         /// </summary>
         /// <value>The graphics device manager.</value>
-        GraphicsDeviceManager GraphicsDeviceManager { get; set; }
+        public GraphicsDeviceManager GraphicsDeviceManager { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:FlatSquares.InternalGame"/> class.
@@ -135,8 +150,22 @@ namespace FlatSquares.Core
         /// </summary>
         protected override void Initialize()
         {
-            ((ContentProvider)ContentProvider).ContentManager = Content;
-            ((RenderProvider)RenderProvider).GraphicsDeviceManager = GraphicsDeviceManager;
+            GraphicsDeviceManager.PreferredBackBufferWidth = (int)TransformMatrix.VirtualWidth;
+            GraphicsDeviceManager.PreferredBackBufferHeight = (int)TransformMatrix.VirtualHeight;
+
+            TransformMatrix.Width = GraphicsDevice.Viewport.Width;
+            TransformMatrix.Height = GraphicsDevice.Viewport.Height;
+            TransformMatrix.Initialize();
+
+            var contentProvider = ContentProvider as ContentProvider;
+            contentProvider.ContentManager = Content;
+
+            var renderProvider = RenderProvider as RenderProvider;
+            renderProvider.GraphicsDeviceManager = GraphicsDeviceManager;
+            renderProvider.TransformMatrix = TransformMatrix;
+
+            var touchProvider = TouchProvider as TouchProvider;
+            touchProvider.TransformMatrix = Matrix.Invert(TransformMatrix);
 
             Application.StartNavigation();
             base.Initialize();
@@ -170,5 +199,48 @@ namespace FlatSquares.Core
             Application.Draw();
             base.Draw(gameTime);
         }
+    }
+
+    /// <summary>
+    /// Transform matrix.
+    /// </summary>
+    class TransformMatrix
+    {
+        /// <summary>
+        /// Gets or sets the width of the virtual.
+        /// </summary>
+        /// <value>The width of the virtual.</value>
+        public float VirtualWidth { get; set; }
+
+        /// <summary>
+        /// Gets or sets the height of the virtual.
+        /// </summary>
+        /// <value>The height of the virtual.</value>
+        public float VirtualHeight { get; set; }
+
+        /// <summary>
+        /// Gets or sets the width.
+        /// </summary>
+        /// <value>The width.</value>
+        public float Width { get; set; }
+
+        /// <summary>
+        /// Gets or sets the height.
+        /// </summary>
+        /// <value>The height.</value>
+        public float Height { get; set; }
+
+        /// <summary>
+        /// Gets or sets the matrix.
+        /// </summary>
+        /// <value>The matrix.</value>
+        Matrix Matrix { get; set; }
+
+        /// <summary>
+        /// Initialize this instance.
+        /// </summary>
+        public void Initialize() => Matrix = Matrix.CreateScale(Width / VirtualWidth, Height / VirtualHeight, 1.0f);
+
+        public static implicit operator Matrix(TransformMatrix tm) => tm.Matrix;
     }
 }

@@ -2,7 +2,7 @@
 using FlatSquares.Components;
 using FlatSquares.Core;
 
-namespace BasicSample
+namespace Sprite
 {
     /// <summary>
     /// Root scene.
@@ -15,6 +15,14 @@ namespace BasicSample
         /// <param name="parameters">Parameters.</param>
         public override void Create(object parameters = null)
         {
+            var background = CreateNode("backgound");
+            background.Position = new Vector(0, 0);
+            background.AddComponent(new SpriteComponent
+            {
+                Source = new Rectangle(0f, 0f, 854f, 480f),
+                TexturePath = "Sprites/background"
+            });
+
             for (var i = 0; i < 1; i++)
             {
                 for (var y = 0; y < 1; y++)

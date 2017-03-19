@@ -1,6 +1,7 @@
 ﻿using FlatSquares.Common;
 using FlatSquares.MonoGame.Extensions;
 using FlatSquares.Providers;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
 
 namespace FlatSquares.MonoGame.Providers
@@ -12,6 +13,12 @@ namespace FlatSquares.MonoGame.Providers
     {
         TouchCollection _current;
         TouchCollection _last;
+
+        /// <summary>
+        /// Gets or sets the matrix.
+        /// </summary>
+        /// <value>The matrix.</value>
+        public Matrix TransformMatrix { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="T:FlatSquares.IActive"/> is active.
@@ -87,7 +94,7 @@ namespace FlatSquares.MonoGame.Providers
         public Vector? GetPosition(int index)
         {
             if (_current.Count > index)
-                return _current[index].Position.ToFlatSquareVector();
+                return Vector2.Transform(_current[index].Position, TransformMatrix).ToFlatSquareVector();
 
             return null;
         }
@@ -100,7 +107,7 @@ namespace FlatSquares.MonoGame.Providers
         public Vector? GetLastPosition(int index) 
         {
             if (_current.Count > index)
-                return _last[index].Position.ToFlatSquareVector();
+                return Vector2.Transform(_last[index].Position, TransformMatrix).ToFlatSquareVector();
 
             return null;
         }

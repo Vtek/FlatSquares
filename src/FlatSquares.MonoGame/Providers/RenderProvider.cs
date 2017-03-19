@@ -23,6 +23,12 @@ namespace FlatSquares.MonoGame.Providers
         public GraphicsDeviceManager GraphicsDeviceManager { get; set; }
 
         /// <summary>
+        /// Gets or sets the matrix.
+        /// </summary>
+        /// <value>The matrix.</value>
+        public Matrix TransformMatrix { get; set; }
+
+        /// <summary>
         /// The clear.
         /// </summary>
         Color _clear = new Color();
@@ -56,7 +62,7 @@ namespace FlatSquares.MonoGame.Providers
         public void Begin()
         {
             GraphicsDeviceManager.GraphicsDevice.Clear(_clear);
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(transformMatrix: TransformMatrix);
         }
 
         /// <summary>
