@@ -20,6 +20,7 @@ namespace FlatSquares.MonoGame.Modules
             builder.RegisterType<RenderProvider>().As<IRenderProvider>().SingleInstance();
             builder.RegisterType<DependencyProvider>().As<IDependencyProvider>().SingleInstance();
             builder.RegisterType<TouchProvider>().As<ITouchProvider>().SingleInstance();
+            builder.RegisterType<VirtualResolutionProvider>().As<IVirtualResolutionProvider>().SingleInstance();
 
             builder.RegisterType<InternalGame>().AsSelf().SingleInstance();
             base.Load(builder);

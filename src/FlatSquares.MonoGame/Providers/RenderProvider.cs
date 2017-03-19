@@ -53,9 +53,6 @@ namespace FlatSquares.MonoGame.Providers
         Vector2 _origin = new Vector2();
         Rectangle _source = new Rectangle();
 
-        public int HeightRequired { get; set; }
-        public int WidthRequired { get; set; }
-
         /// <summary>
         /// Begin render operation.
         /// </summary>

@@ -61,6 +61,7 @@
     <Compile Include="Providers\IRenderProvider.cs" />
     <Compile Include="Providers\IContentProvider.cs" />
     <Compile Include="Providers\ITouchProvider.cs" />
+    <Compile Include="Providers\IVirtualResolutionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />

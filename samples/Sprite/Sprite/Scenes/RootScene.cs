@@ -28,7 +28,6 @@ namespace Sprite
                 for (var y = 0; y < 1; y++)
                 {
                     var node = CreateNode($"Node{i}");
-                    node.Position = new Vector(i * 50, y * 50);
                     node.AddComponent(new SpinnerComponent
                     {
                         Speed = i * y * 0.1f + 0.1f

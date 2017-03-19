@@ -123,6 +123,8 @@ namespace FlatSquares.Core
         /// <value>The touch provider.</value>
         public ITouchProvider TouchProvider { get; set; }
 
+        public IVirtualResolutionProvider VirtualResolutionProvider { get; set; }
+
         /// <summary>
         /// Gets or sets the graphics device manager.
         /// </summary>
@@ -166,6 +168,10 @@ namespace FlatSquares.Core
 
             var touchProvider = TouchProvider as TouchProvider;
             touchProvider.TransformMatrix = Matrix.Invert(TransformMatrix);
+
+            var virtualResolutionProvider = VirtualResolutionProvider as VirtualResolutionProvider;
+            virtualResolutionProvider.Width = TransformMatrix.VirtualWidth;
+            virtualResolutionProvider.Height = TransformMatrix.VirtualHeight;
 
             Application.StartNavigation();
             base.Initialize();
