@@ -6,10 +6,10 @@
     public interface IContentProvider
     {
         /// <summary>
-        /// Load a resource.
+        /// Gets the texture.
         /// </summary>
-        /// <returns>Resource.</returns>
+        /// <returns>The texture.</returns>
         /// <param name="resourcePath">Resource path.</param>
-        object Load(string resourcePath);
+        ITexture GetTexture(string resourcePath);
     }
 }

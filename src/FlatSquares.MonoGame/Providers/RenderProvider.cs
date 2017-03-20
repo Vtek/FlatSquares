@@ -72,7 +72,7 @@ namespace FlatSquares.MonoGame.Providers
             SetPosition(render.Position.X, render.Position.Y);
             SetOrigin(render.Origin.X, render.Origin.Y);
             SetSource(render.Source.X, render.Source.Y, render.Source.Width, render.Source.Height);
-            SpriteBatch.Draw((Texture2D)render.Texture, _position, _source, Color.White, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
+            SpriteBatch.Draw(render.Texture as Texture, _position, _source, Color.White, render.Rotation, _origin, render.Scale, SpriteEffects.None, 0f);
         }
 
         /// <summary>

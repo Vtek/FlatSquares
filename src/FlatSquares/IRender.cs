@@ -11,7 +11,7 @@ namespace FlatSquares
         /// Gets the texture.
         /// </summary>
         /// <value>The texture.</value>
-        object Texture { get; }
+        ITexture Texture { get; }
 
         /// <summary>
         /// Gets the position.

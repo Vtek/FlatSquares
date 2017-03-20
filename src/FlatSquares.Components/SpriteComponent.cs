@@ -55,11 +55,11 @@ namespace FlatSquares.Components
         /// Gets the texture.
         /// </summary>
         /// <value>The texture.</value>
-        public object Texture { get; private set; }
+        public ITexture Texture { get; private set; }
 
         /// <summary>
         /// Load this instance.
         /// </summary>
-        public void Load() => Texture = ContentProvider.Load(TexturePath);
+        public void Load() => Texture = ContentProvider.GetTexture(TexturePath);
     }
 }
