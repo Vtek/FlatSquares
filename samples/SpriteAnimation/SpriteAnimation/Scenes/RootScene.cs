@@ -25,10 +25,8 @@ namespace SpriteAnimation.Scenes
                 new Rectangle(0, 192, 64, 64), new Rectangle(64, 192, 64, 64), new Rectangle(128, 192, 64, 64), new Rectangle(192, 192, 64, 64), new Rectangle(256, 192, 64, 64),
                 new Rectangle(0, 256, 64, 64), new Rectangle(64, 256, 64, 64), new Rectangle(128, 256, 64, 64), new Rectangle(192, 256, 64, 64), new Rectangle(256, 256, 64, 64)
             });
-            animation.SetCurrent("explosion");
-
             node.AddComponent(animation);
-            node.AddComponent(new UserInputComponent());
+            node.AddComponent(new ExplosionComponent());
 
             
         }

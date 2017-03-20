@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FlatSquares.Common;
 
@@ -9,13 +8,12 @@ namespace FlatSquares.Components
     {
         IDictionary<string, IEnumerable<Rectangle>> Animations { get; set; } = new Dictionary<string, IEnumerable<Rectangle>>();
         IEnumerable<Rectangle> Currents { get; set; }
-
-        public float Duration { get; set; }
-
-        bool _isFinish;
+        bool _isFinished = true;
         int _index;
         float _elapsed;
         float _frameRate;
+
+        public float Duration { get; set; }
 
         public void AddAnimation(string key, params Rectangle[] rectangles)
         {
@@ -25,30 +23,33 @@ namespace FlatSquares.Components
         public void SetCurrent(string key)
         {
             Currents = Animations[key];
-            Source = Animations[key].First();
             _frameRate = Duration / Currents.Count();
         }
 
-        public void Reset()
+        public void Launch()
         {
             _elapsed = 0f;
             _index = 0;
-            _isFinish = false;
+            _isFinished = false;
+            Source = Currents.First();
         }
+
+        public override void Initialize() => Source = Rectangle.Empty;
 
         public void Update(float elapsed)
         {
-            _elapsed += elapsed;
-
-            if(!_isFinish)
+            if (!_isFinished)
             {
-                if(_elapsed >= _frameRate) {
+                _elapsed += elapsed;
+
+                if (_elapsed >= _frameRate)
+                {
                     _index++;
 
                     if (_index < Currents.Count())
                         Source = Currents.ElementAt(_index);
                     else
-                        _isFinish = true;
+                        _isFinished = true;
 
                     _elapsed = 0;
                 }

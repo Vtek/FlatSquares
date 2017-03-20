@@ -65,7 +65,7 @@ namespace FlatSquares.Components
         /// <summary>
         /// Initialize this instance.
         /// </summary>
-        public void Initialize()
+        public virtual void Initialize()
         {
             if (Source.IsEmpty)
                 Source = new Rectangle(0, 0, Texture.Width, Texture.Height);
