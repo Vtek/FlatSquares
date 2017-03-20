@@ -4,6 +4,9 @@ using FlatSquares.Common;
 
 namespace FlatSquares.Components
 {
+    /// <summary>
+    /// Animated sprite component.
+    /// </summary>
     public class AnimatedSpriteComponent : SpriteComponent, IUpdate
     {
         IDictionary<string, IEnumerable<Rectangle>> Animations { get; set; } = new Dictionary<string, IEnumerable<Rectangle>>();
@@ -13,19 +16,35 @@ namespace FlatSquares.Components
         float _elapsed;
         float _frameRate;
 
+        /// <summary>
+        /// Gets or sets the duration (in seconds).
+        /// </summary>
+        /// <value>The duration.</value>
         public float Duration { get; set; }
 
+        /// <summary>
+        /// Add an animation.
+        /// </summary>
+        /// <param name="key">Key.</param>
+        /// <param name="rectangles">Source rectangles.</param>
         public void AddAnimation(string key, params Rectangle[] rectangles)
         {
             Animations.Add(key, rectangles);
         }
 
+        /// <summary>
+        /// Set current animation.
+        /// </summary>
+        /// <param name="key">Key.</param>
         public void SetCurrent(string key)
         {
             Currents = Animations[key];
             _frameRate = Duration / Currents.Count();
         }
 
+        /// <summary>
+        /// Launch the current animation
+        /// </summary>
         public void Launch()
         {
             _elapsed = 0f;
@@ -34,8 +53,15 @@ namespace FlatSquares.Components
             Source = Currents.First();
         }
 
+        /// <summary>
+        /// Initialize this instance.
+        /// </summary>
         public override void Initialize() => Source = Rectangle.Empty;
 
+        /// <summary>
+        /// Perform an update.
+        /// </summary>
+        /// <param name="elapsed">Elapsed time since last update.</param>
         public void Update(float elapsed)
         {
             if (!_isFinished)
