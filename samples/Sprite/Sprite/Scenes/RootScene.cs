@@ -17,32 +17,12 @@ namespace Sprite
         {
             var background = CreateNode("backgound");
             background.Position = new Vector(0, 0);
-            background.AddComponent(new SpriteComponent
-            {
-                Source = new Rectangle(0f, 0f, 854f, 480f),
-                TexturePath = "Sprites/background"
-            });
+            background.AddComponent(new SpriteComponent{ TexturePath = "Sprites/background" });
 
-            for (var i = 0; i < 1; i++)
-            {
-                for (var y = 0; y < 1; y++)
-                {
-                    var node = CreateNode($"Node{i}");
-                    node.Scale = 0.5f;
-
-                    node.AddComponent(new SpinnerComponent
-                    {
-                        Speed = i * y * 0.1f + 0.1f
-                    });
-                    node.AddComponent(new SpriteComponent
-                    {
-                        Source = new Rectangle(0f, 0f, 480f, 480f),
-                        TexturePath = "Sprites/star",
-                        Origin = new Vector(240f, 240f)
-                    });
-                }
-            }
-
+            var node = CreateNode("star");
+            node.Scale = 0.5f;
+            node.AddComponent(new SpriteComponent { TexturePath = "Sprites/star" });
+            node.AddComponent(new SpinnerComponent { Speed = 1f });
         }
     }
 }

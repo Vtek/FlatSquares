@@ -7,7 +7,7 @@ namespace FlatSquares.Components
     /// <summary>
     /// Sprite component.
     /// </summary>
-    public class SpriteComponent : Component, IRender, ILoad
+    public class SpriteComponent : Component, IRender, ILoad, IInitialize
     {
         /// <summary>
         /// Gets or sets the content provider.
@@ -61,5 +61,14 @@ namespace FlatSquares.Components
         /// Load this instance.
         /// </summary>
         public void Load() => Texture = ContentProvider.GetTexture(TexturePath);
+
+        /// <summary>
+        /// Initialize this instance.
+        /// </summary>
+        public void Initialize()
+        {
+            if (Source.IsEmpty)
+                Source = new Rectangle(0, 0, Texture.Width, Texture.Height);
+        }
     }
 }

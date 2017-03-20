@@ -1,6 +1,6 @@
-﻿using System;
-using FlatSquares;
+﻿using FlatSquares;
 using FlatSquares.Common;
+using FlatSquares.Components;
 using FlatSquares.Core;
 using FlatSquares.Providers;
 
@@ -15,6 +15,8 @@ namespace Sprite
 
         public void Initialize()
         {
+            var spriteComponent = Node.GetComponent<SpriteComponent>();
+            spriteComponent.Origin = spriteComponent.Source.Center;
             Node.Position = new Vector(VirtualResolutionProvider.Width / 2, VirtualResolutionProvider.Height / 2);
         }
 
