@@ -10,7 +10,7 @@ namespace SpriteAnimation.Scenes
     {
         public override void Create(object parameters = null)
         {
-            var node = CreateNode("node");
+            var node = CreateNode("explosion");
 
             var animation = new AnimatedSpriteComponent
             {
@@ -26,7 +26,6 @@ namespace SpriteAnimation.Scenes
                 new Rectangle(0, 256, 64, 64), new Rectangle(64, 256, 64, 64), new Rectangle(128, 256, 64, 64), new Rectangle(192, 256, 64, 64), new Rectangle(256, 256, 64, 64)
             });
             animation.SetCurrent("explosion");
-
 
             node.AddComponent(animation);
             node.AddComponent(new UserInputComponent());

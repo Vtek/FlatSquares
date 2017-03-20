@@ -14,11 +14,14 @@ namespace SpriteAnimation.Components
         public void Initialize()
         {
             AnimatedSpriteComponent = Node.GetComponent<AnimatedSpriteComponent>();
+            AnimatedSpriteComponent.Origin = AnimatedSpriteComponent.Source.Center;
         }
 
         public void Update(float elapsed)
         {
-            if(TouchProvider.Up(0)){
+            if(TouchProvider.Up(0)) 
+            {
+                Node.Position = TouchProvider.GetPosition(0).Value;
                 AnimatedSpriteComponent.Reset();
             }
         }

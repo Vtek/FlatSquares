@@ -30,7 +30,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\RootScene.cs" />
-    <Compile Include="Components\UserInputComponent.cs" />
+    <Compile Include="Components\ExplosionComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scenes\" />
