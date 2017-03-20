@@ -1,5 +1,4 @@
-﻿using System;
-using FlatSquares.Common;
+﻿using FlatSquares.Common;
 using FlatSquares.Components;
 using FlatSquares.Core;
 using SpriteAnimation.Components;
@@ -27,8 +26,6 @@ namespace SpriteAnimation.Scenes
             });
             node.AddComponent(animation);
             node.AddComponent(new ExplosionComponent());
-
-            
         }
     }
 }

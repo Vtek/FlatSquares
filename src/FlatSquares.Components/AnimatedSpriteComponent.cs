@@ -11,7 +11,7 @@ namespace FlatSquares.Components
     {
         IDictionary<string, IEnumerable<Rectangle>> Animations { get; set; } = new Dictionary<string, IEnumerable<Rectangle>>();
         IEnumerable<Rectangle> Currents { get; set; }
-        bool _isFinished = true;
+        bool _isFinished;
         int _index;
         float _elapsed;
         float _frameRate;
@@ -27,10 +27,7 @@ namespace FlatSquares.Components
         /// </summary>
         /// <param name="key">Key.</param>
         /// <param name="rectangles">Source rectangles.</param>
-        public void AddAnimation(string key, params Rectangle[] rectangles)
-        {
-            Animations.Add(key, rectangles);
-        }
+        public void AddAnimation(string key, params Rectangle[] rectangles) => Animations.Add(key, rectangles);
 
         /// <summary>
         /// Set current animation.
@@ -43,7 +40,7 @@ namespace FlatSquares.Components
         }
 
         /// <summary>
-        /// Launch the current animation
+        /// Launch the current animation.
         /// </summary>
         public void Launch()
         {
@@ -54,9 +51,18 @@ namespace FlatSquares.Components
         }
 
         /// <summary>
+        /// Stop this current animation.
+        /// </summary>
+        public void Stop()
+        {
+            _isFinished = true;
+            Source = Rectangle.Empty;
+        }
+
+        /// <summary>
         /// Initialize this instance.
         /// </summary>
-        public override void Initialize() => Source = Rectangle.Empty;
+        public override void Initialize() => Stop();
 
         /// <summary>
         /// Perform an update.
@@ -75,7 +81,7 @@ namespace FlatSquares.Components
                     if (_index < Currents.Count())
                         Source = Currents.ElementAt(_index);
                     else
-                        _isFinished = true;
+                        Stop();
 
                     _elapsed = 0;
                 }
