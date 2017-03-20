@@ -27,6 +27,12 @@ namespace FlatSquares.Core
         ICollection<IComponent> Components { get; } = new List<IComponent>();
 
         /// <summary>
+        /// Gets the tags.
+        /// </summary>
+        /// <value>The tags.</value>
+        ICollection<string> Tags { get; } = new List<string>();
+
+        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:FlatSquares.Core.Node"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
@@ -94,6 +100,25 @@ namespace FlatSquares.Core
             ComponentRemoved?.Invoke(this, component);
             component.Dispose();
         }
+
+        /// <summary>
+        /// Add a tag.
+        /// </summary>
+        /// <param name="tag">Tag.</param>
+        public void AddTag(string tag)
+        {
+            if (Tags.Any(c => c == tag))
+                throw new ArgumentException($"Node {Key} already contains {tag}");
+
+            Tags.Add(tag);
+        }
+
+        /// <summary>
+        /// True if Node is tagged with a specific tag.
+        /// </summary>
+        /// <returns><c>true</c>, if Node is tagged with a specific tag, <c>false</c> otherwise.</returns>
+        /// <param name="tag">Tag.</param>
+        public bool IsTagged(string tag) => Tags.Any(t => t == tag);
 
         /// <summary>
         /// Initialize the node.

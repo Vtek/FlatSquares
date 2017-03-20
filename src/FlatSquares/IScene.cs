@@ -41,6 +41,13 @@ namespace FlatSquares
         INode GetNode(string key);
 
         /// <summary>
+        /// Gets nodes corresponding to a tag.
+        /// </summary>
+        /// <returns>The nodes.</returns>
+        /// <param name="tag">Tag.</param>
+        IEnumerable<INode> GetNodes(string tag);
+
+        /// <summary>
         /// Remove a node corresponding to a key.
         /// </summary>
         /// <param name="key">Key.</param>

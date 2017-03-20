@@ -119,6 +119,13 @@ namespace FlatSquares.Core
         public INode GetNode(string key) => Nodes.SingleOrDefault(node => node.Key == key);
 
         /// <summary>
+        /// Gets nodes corresponding to a tag.
+        /// </summary>
+        /// <returns>The nodes.</returns>
+        /// <param name="tag">Tag.</param>
+        public IEnumerable<INode> GetNodes(string tag) => Nodes.Where(n => n.IsTagged(tag)).AsEnumerable();
+
+        /// <summary>
         /// Remove a node corresponding to a key.
         /// </summary>
         /// <param name="key">Key.</param>

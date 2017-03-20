@@ -65,5 +65,18 @@ namespace FlatSquares
         /// Removes the component.
         /// </summary>
         void RemoveComponent<TComponent>() where TComponent : IComponent;
+
+        /// <summary>
+        /// Add a tag.
+        /// </summary>
+        /// <param name="tag">Tag.</param>
+        void AddTag(string tag);
+
+        /// <summary>
+        /// True if Node is tagged with a specific tag.
+        /// </summary>
+        /// <returns><c>true</c>, if Node is tagged with a specific tag, <c>false</c> otherwise.</returns>
+        /// <param name="tag">Tag.</param>
+        bool IsTagged(string tag);
     }
 }
