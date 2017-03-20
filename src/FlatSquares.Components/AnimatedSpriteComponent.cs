@@ -23,6 +23,13 @@ namespace FlatSquares.Components
         public float Duration { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:FlatSquares.Components.AnimatedSpriteComponent"/>
+        /// is repeated.
+        /// </summary>
+        /// <value><c>true</c> if repeated; otherwise, <c>false</c>.</value>
+        public bool Repeat { get; set; }
+
+        /// <summary>
         /// Add an animation.
         /// </summary>
         /// <param name="key">Key.</param>
@@ -81,7 +88,12 @@ namespace FlatSquares.Components
                     if (_index < Currents.Count())
                         Source = Currents.ElementAt(_index);
                     else
-                        Stop();
+                    {
+                        if (Repeat)
+                            Launch();
+                        else
+                            Stop();
+                    }
                 }
             }
         }
