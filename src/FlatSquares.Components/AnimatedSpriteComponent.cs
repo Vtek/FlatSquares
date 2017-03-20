@@ -82,8 +82,6 @@ namespace FlatSquares.Components
                         Source = Currents.ElementAt(_index);
                     else
                         Stop();
-
-                    _elapsed = 0;
                 }
             }
         }
