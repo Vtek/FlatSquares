@@ -28,8 +28,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\FirstScene.cs" />
+    <Compile Include="Scenes\SecondScene.cs" />
+    <Compile Include="Components\FirstComponent.cs" />
+    <Compile Include="Components\SecondComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Scenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\FlatSquares\FlatSquares.csproj">
+      <Project>{902EB1C0-6F9B-4FFC-902C-6551FE3847B6}</Project>
+      <Name>FlatSquares</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\FlatSquares.Components\FlatSquares.Components.csproj">
+      <Project>{65140D6C-28D8-44D3-87DE-F7E8D3EF77F1}</Project>
+      <Name>FlatSquares.Components</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
