@@ -11,7 +11,7 @@ namespace FlatSquares.Components
     {
         IDictionary<string, IEnumerable<Rectangle>> Animations { get; set; } = new Dictionary<string, IEnumerable<Rectangle>>();
         IEnumerable<Rectangle> Currents { get; set; }
-        bool _isFinished;
+        bool _isFinished = true;
         int _index;
         float _elapsed;
         float _frameRate;
@@ -49,7 +49,7 @@ namespace FlatSquares.Components
         /// <summary>
         /// Launch the current animation.
         /// </summary>
-        public void Launch()
+        public void Play()
         {
             _elapsed = 0f;
             _index = 0;
@@ -69,7 +69,7 @@ namespace FlatSquares.Components
         /// <summary>
         /// Initialize this instance.
         /// </summary>
-        public override void Initialize() => Stop();
+        public override void Initialize() => Source = Rectangle.Empty;
 
         /// <summary>
         /// Perform an update.

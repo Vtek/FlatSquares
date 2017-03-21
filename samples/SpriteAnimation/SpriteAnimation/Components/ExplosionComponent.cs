@@ -25,7 +25,7 @@ namespace SpriteAnimation.Components
             if(TouchProvider.Up(0)) 
             {
                 Node.Position = TouchProvider.GetPosition(0).Value;
-                AnimatedSpriteComponent.Launch();
+                AnimatedSpriteComponent.Play();
             }
         }
     }
