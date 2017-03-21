@@ -68,6 +68,8 @@ namespace FlatSquares.Core
         /// <value>The position.</value>
         public Vector Position { get; set; } = Vector.Zero;
 
+        internal Node() {}
+
         /// <summary>
         /// Adds the component.
         /// </summary>
