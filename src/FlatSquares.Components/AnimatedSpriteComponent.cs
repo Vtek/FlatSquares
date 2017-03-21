@@ -90,7 +90,7 @@ namespace FlatSquares.Components
                     else
                     {
                         if (Repeat)
-                            Launch();
+                            Play();
                         else
                             Stop();
                     }
